@@ -83,13 +83,14 @@ def run_day(day: int = 1):
     )
 
     # 5. Write journal file
-    journals_dir = os.path.join(REPO_ROOT, "journals")
-    os.makedirs(journals_dir, exist_ok=True)
     date_str = datetime.now().strftime("%Y-%m-%d")
-    journal_path = os.path.join(journals_dir, f"{date_str}.md")
-    with open(journal_path, "w", encoding="utf-8") as f:
-        f.write(report_content)
-    print(f"[+] Journal saved to {journal_path}")
+    for folder_name in ["journal", "journals"]:
+        target_dir = os.path.join(REPO_ROOT, folder_name)
+        os.makedirs(target_dir, exist_ok=True)
+        target_path = os.path.join(target_dir, f"{date_str}.md")
+        with open(target_path, "w", encoding="utf-8") as f:
+            f.write(report_content)
+    print(f"[+] Journal saved to journal/{date_str}.md and journals/{date_str}.md")
 
     # 6. Git commit
     print("[Step 4] Executing Git commit...")
