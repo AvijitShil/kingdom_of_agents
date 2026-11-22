@@ -327,6 +327,7 @@ def run_day(day: int = 1):
         agora_channel=agora,
         survival_summary=metabolic_engine.get_society_survival_summary(),
         headline=headline,
+        date_str=date_str,
     )
 
     # 8. Save Gazette to journal/ and journals/

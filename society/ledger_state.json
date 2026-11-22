@@ -1,9 +1,9 @@
 {
   "total_supply": 10000,
   "balances": {
-    "clan_alpha_technocrats": 3100,
-    "clan_beta_merchants": 2870,
-    "clan_gamma_jurists": 3030
+    "clan_alpha_technocrats": 3200,
+    "clan_beta_merchants": 2740,
+    "clan_gamma_jurists": 3060
   },
   "transactions": [
     {
@@ -15,6 +15,20 @@
     },
     {
       "timestamp": 1795369444,
+      "from": "clan_beta_merchants",
+      "to": "clan_gamma_jurists",
+      "amount": 30,
+      "memo": "Day 02 Article 3 Judicial Filing Fee"
+    },
+    {
+      "timestamp": 1795369514,
+      "from": "clan_beta_merchants",
+      "to": "clan_alpha_technocrats",
+      "amount": 100,
+      "memo": "Day 02 Emergency Energy Loan Escrow"
+    },
+    {
+      "timestamp": 1795369514,
       "from": "clan_beta_merchants",
       "to": "clan_gamma_jurists",
       "amount": 30,

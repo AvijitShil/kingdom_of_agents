@@ -30,8 +30,9 @@ class ObserverAgent:
         agora_channel: Optional[Any] = None,
         survival_summary: Optional[Dict[str, Any]] = None,
         headline: Optional[str] = None,
+        date_str: Optional[str] = None,
     ) -> str:
-        date_str = datetime.now().strftime("%Y-%m-%d")
+        date_str = date_str or datetime.now().strftime("%Y-%m-%d")
         clan_actions = clan_actions or []
         ledger_summary = ledger_summary or {}
         disputes = disputes or []
