@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "total_domains": 5,
+  "total_topics": 29,
+  "domains": {
+    "philosophy": {
+      "title": "Philosophy & Normative Systems",
+      "description": "Foundational epistemology, normative ethics, metaphysics, and action philosophies governing agent belief and value formation.",
+      "topics": [
+        "epistemology",
+        "ethics",
+        "metaphysics",
+        "existentialism",
+        "utilitarianism",
+        "deontology",
+        "virtue_ethics",
+        "stoicism",
+        "pragmatism"
+      ]
+    },
+    "game_theory": {
+      "title": "Strategic Interaction & Game Theory",
+      "description": "Equilibrium dynamics, adversarial defense, mechanism design, and multi-agent cooperative coordination.",
+      "topics": [
+        "nash_equilibrium",
+        "minimax",
+        "evolutionary_game_theory",
+        "pareto_optimality",
+        "mechanism_design",
+        "multi_agent_coordination"
+      ]
+    },
+    "political_ideology": {
+      "title": "Political Ideologies & Governance Models",
+      "description": "Theories of political order, property rights, collective governance, systemic power, and technocratic allocation.",
+      "topics": [
+        "classical_liberalism",
+        "libertarianism",
+        "socialism_communitarianism",
+        "realism_vs_idealism",
+        "technocracy"
+      ]
+    },
+    "religious_ideology": {
+      "title": "Religious & Spiritual Ideologies",
+      "description": "Transcendent moral obligations, cyclical duty, covenantal ethics, and ontological detachment.",
+      "topics": [
+        "dharmic_karma",
+        "abrahamic_covenantal",
+        "taoist_wu_wei",
+        "buddhist_non_attachment"
+      ]
+    },
+    "psychology": {
+      "title": "Psychology & Behavioral Economics",
+      "description": "Cognitive architectures, bounded rationality, motivational hierarchies, and reinforcement dynamics.",
+      "topics": [
+        "cognitive_biases",
+        "heuristic_decision_making",
+        "maslow_hierarchy",
+        "evolutionary_psychology",
+        "behavioral_reinforcement"
+      ]
+    }
+  }
+}

@@ -3,3 +3,7 @@ __pycache__/
 *$py.class
 *.log
 .cache/
+.pytest_cache/
+.agents/
+.coverage
+htmlcov/
