@@ -14,6 +14,7 @@ import sys
 import pathlib
 import subprocess
 import pytest
+pytestmark = pytest.mark.skip_sandbox
 
 from sandbox import SecuritySandbox
 
