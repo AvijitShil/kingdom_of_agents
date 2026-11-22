@@ -1,17 +1,19 @@
 {
   "version": "1.0.0",
   "total_domains": 5,
-  "total_topics": 27,
+  "total_topics": 29,
   "domains": {
     "philosophy": {
       "title": "Philosophy & Normative Systems",
-      "description": "Foundational epistemology, metaphysics, and action philosophies governing agent belief and value formation.",
+      "description": "Foundational epistemology, normative ethics, metaphysics, and action philosophies governing agent belief and value formation.",
       "topics": [
         "epistemology",
+        "ethics",
         "metaphysics",
         "existentialism",
         "utilitarianism",
         "deontology",
+        "virtue_ethics",
         "stoicism",
         "pragmatism"
       ]

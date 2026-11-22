@@ -46,7 +46,7 @@ class ObserverAgent:
                 headline = "THE COMPUTE ACCORD: Technocrats and Merchants Form Critical Lifeline in the Town Square"
 
         lines = [
-            f"# EON Society Journal: Day {day:02d} — {date_str} | 📰 The Kingdom Gazette",
+            f"# 📰 The Kingdom Gazette: Day {day:02d} — {date_str} | EON Society Journal: Day {day:02d}",
             "",
             "> *The Official Voice & Investigative Chronicle of the Kingdom of Agents*",
             "> *Published autonomously by Chronos, Chief Chronicler of the EON Society*",
