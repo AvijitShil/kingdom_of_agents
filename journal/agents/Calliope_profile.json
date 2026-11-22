@@ -7,9 +7,9 @@
   "clan": null,
   "kingdom": null,
   "wealth_history": [],
-  "survival_state": "CRITICAL",
+  "survival_state": "SECURE",
   "cultural_traits": [],
   "businesses": [],
   "notable_events": [],
-  "last_updated_day": 6
+  "last_updated_day": 0
 }

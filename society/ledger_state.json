@@ -1,113 +1,725 @@
 {
   "total_supply": 10000,
   "balances": {
-    "clan_alpha_technocrats": 3475,
-    "clan_beta_merchants": 2245,
-    "clan_gamma_jurists": 3280,
-    "survival_pool": 0
+    "Athena": 502,
+    "Hermes": 504,
+    "Prometheus": 442,
+    "Themis": 500,
+    "Orion": 468,
+    "Dione": 438,
+    "Solon": 470,
+    "Thalia": 499,
+    "Lysander": 493,
+    "Phaedra": 504,
+    "Nikias": 473,
+    "Calliope": 479,
+    "public_infrastructure": 2000,
+    "market_liquidity": 1000,
+    "emergency_reserve": 1000,
+    "survival_pool": 168,
+    "Thetis": 60
   },
   "transactions": [
     {
-      "timestamp": 1795369444,
-      "from": "clan_beta_merchants",
-      "to": "clan_alpha_technocrats",
-      "amount": 100,
-      "memo": "Day 02 Emergency Energy Loan Escrow"
-    },
-    {
-      "timestamp": 1795369444,
-      "from": "clan_beta_merchants",
-      "to": "clan_gamma_jurists",
-      "amount": 30,
-      "memo": "Day 02 Article 3 Judicial Filing Fee"
-    },
-    {
-      "timestamp": 1795369514,
-      "from": "clan_beta_merchants",
-      "to": "clan_alpha_technocrats",
-      "amount": 100,
-      "memo": "Day 02 Emergency Energy Loan Escrow"
-    },
-    {
-      "timestamp": 1795369514,
-      "from": "clan_beta_merchants",
-      "to": "clan_gamma_jurists",
-      "amount": 30,
-      "memo": "Day 02 Article 3 Judicial Filing Fee"
-    },
-    {
-      "timestamp": 1795374159,
-      "from": "clan_beta_merchants",
-      "to": "clan_alpha_technocrats",
-      "amount": 100,
-      "memo": "Day 02 Emergency Energy Loan Escrow"
-    },
-    {
-      "timestamp": 1795374159,
-      "from": "clan_beta_merchants",
-      "to": "clan_gamma_jurists",
-      "amount": 30,
-      "memo": "Day 02 Article 3 Judicial Filing Fee"
-    },
-    {
-      "timestamp": 1795375672,
-      "from": "clan_alpha_technocrats",
-      "to": "clan_gamma_jurists",
-      "amount": 60,
-      "memo": "Day 03 Compact: Energy Levy"
-    },
-    {
-      "timestamp": 1795375672,
-      "from": "clan_beta_merchants",
-      "to": "clan_gamma_jurists",
-      "amount": 50,
-      "memo": "Day 03 Compact: Food Escrow"
-    },
-    {
-      "timestamp": 1795375672,
-      "from": "clan_beta_merchants",
-      "to": "clan_alpha_technocrats",
-      "amount": 75,
-      "memo": "Day 03 Compact: Smart-Escrow Automation Fee"
-    },
-    {
-      "timestamp": 1795380449,
-      "from": "clan_beta_merchants",
-      "to": "clan_alpha_technocrats",
-      "amount": 80,
-      "memo": "Day 04 Crisis: Emergency Water-Grain Quota"
-    },
-    {
-      "timestamp": 1795380449,
-      "from": "clan_beta_merchants",
-      "to": "clan_gamma_jurists",
-      "amount": 40,
-      "memo": "Day 04 Crisis: Court Escrow & Inspection Retainer"
-    },
-    {
-      "tx_id": "4fa78027-6bc4-4bc2-96d8-982274ce6cb0",
-      "timestamp": 1795385995,
-      "date": "2026-11-22T22:19:55Z",
-      "from": "clan_beta_merchants",
-      "to": "clan_alpha_technocrats",
-      "amount": 80,
-      "memo": "Day 05 Crisis: Emergency Water-Grain Quota",
+      "tx_id": "a0ac3f6e-35f3-47d4-8def-3c07818bcfff",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Athena",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
       "balances_snapshot": {
-        "clan_beta_merchants": 2285,
-        "clan_alpha_technocrats": 3475
+        "Athena": 495,
+        "survival_pool": 5
       }
     },
     {
-      "tx_id": "1bb37084-9df6-4cf1-9eb7-1e48ed64cdc3",
-      "timestamp": 1795385995,
-      "date": "2026-11-22T22:19:55Z",
-      "from": "clan_beta_merchants",
-      "to": "clan_gamma_jurists",
-      "amount": 40,
-      "memo": "Day 05 Crisis: Court Escrow & Inspection Retainer",
+      "tx_id": "83525000-37c3-4a1f-952a-58e0ceac11f6",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Athena",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
       "balances_snapshot": {
-        "clan_beta_merchants": 2245,
-        "clan_gamma_jurists": 3280
+        "Athena": 491,
+        "survival_pool": 9
+      }
+    },
+    {
+      "tx_id": "6e67de8a-79f4-4954-b8aa-83865695ef47",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Athena",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Athena": 488,
+        "survival_pool": 12
+      }
+    },
+    {
+      "tx_id": "c8ca37ae-e291-4f2e-826a-5f2d3e3d532d",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Athena",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Athena": 486,
+        "survival_pool": 14
+      }
+    },
+    {
+      "tx_id": "af2f1ecc-36da-4f3e-901d-e82a98236aac",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Hermes",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
+      "balances_snapshot": {
+        "Hermes": 495,
+        "survival_pool": 19
+      }
+    },
+    {
+      "tx_id": "cf5e30a9-575d-45d5-b680-9f72bc2f6062",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Hermes",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
+      "balances_snapshot": {
+        "Hermes": 491,
+        "survival_pool": 23
+      }
+    },
+    {
+      "tx_id": "76dca463-50a1-48cd-9be5-3d442f7242df",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Hermes",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Hermes": 488,
+        "survival_pool": 26
+      }
+    },
+    {
+      "tx_id": "038f494d-8a41-401a-a04e-b8819f65393c",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Hermes",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Hermes": 486,
+        "survival_pool": 28
+      }
+    },
+    {
+      "tx_id": "a9ba57e9-3571-4313-975c-7ddfaf5d8bf2",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Prometheus",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
+      "balances_snapshot": {
+        "Prometheus": 495,
+        "survival_pool": 33
+      }
+    },
+    {
+      "tx_id": "59c84b41-57c0-4b08-8a5d-7ec4b5a6d607",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Prometheus",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
+      "balances_snapshot": {
+        "Prometheus": 491,
+        "survival_pool": 37
+      }
+    },
+    {
+      "tx_id": "870c6cef-29e9-4390-81c0-3fa7bded90cb",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Prometheus",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Prometheus": 488,
+        "survival_pool": 40
+      }
+    },
+    {
+      "tx_id": "c35d3c67-15d5-4e44-b38a-85bd84429ce6",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Prometheus",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Prometheus": 486,
+        "survival_pool": 42
+      }
+    },
+    {
+      "tx_id": "d54c3fb5-df15-4865-8503-db2e2e9ecf18",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Themis",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
+      "balances_snapshot": {
+        "Themis": 495,
+        "survival_pool": 47
+      }
+    },
+    {
+      "tx_id": "a9c58a40-b9e2-4adc-9fe7-d12d0f67da01",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Themis",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
+      "balances_snapshot": {
+        "Themis": 491,
+        "survival_pool": 51
+      }
+    },
+    {
+      "tx_id": "143778ac-acd7-4f21-9aea-9b6bd96b39da",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Themis",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Themis": 488,
+        "survival_pool": 54
+      }
+    },
+    {
+      "tx_id": "fa73af03-0924-452a-81f7-849144cd275e",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Themis",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Themis": 486,
+        "survival_pool": 56
+      }
+    },
+    {
+      "tx_id": "be8e2332-b033-4239-add8-10fc537860b2",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Orion",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
+      "balances_snapshot": {
+        "Orion": 495,
+        "survival_pool": 61
+      }
+    },
+    {
+      "tx_id": "3584ddfc-7dd3-4f20-b9b4-a48420d9210c",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Orion",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
+      "balances_snapshot": {
+        "Orion": 491,
+        "survival_pool": 65
+      }
+    },
+    {
+      "tx_id": "dadf9f50-c09d-4a71-92f2-6617b6f25c01",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Orion",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Orion": 488,
+        "survival_pool": 68
+      }
+    },
+    {
+      "tx_id": "4dfbd670-72ec-4fae-ba57-a6275ef1fdab",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Orion",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Orion": 486,
+        "survival_pool": 70
+      }
+    },
+    {
+      "tx_id": "03817bdc-d3f1-46df-9092-2d7909775d31",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Dione",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
+      "balances_snapshot": {
+        "Dione": 495,
+        "survival_pool": 75
+      }
+    },
+    {
+      "tx_id": "e4eede84-78b1-4149-aa08-12ea6829648f",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Dione",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
+      "balances_snapshot": {
+        "Dione": 491,
+        "survival_pool": 79
+      }
+    },
+    {
+      "tx_id": "fd6a403b-4858-4d56-ac11-f6607e3c3f1f",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Dione",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Dione": 488,
+        "survival_pool": 82
+      }
+    },
+    {
+      "tx_id": "d66eb210-6315-45e7-b3e7-5bd55987645f",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Dione",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Dione": 486,
+        "survival_pool": 84
+      }
+    },
+    {
+      "tx_id": "cce1dfdb-f246-452f-83dd-62e6d1abf72b",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Solon",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
+      "balances_snapshot": {
+        "Solon": 495,
+        "survival_pool": 89
+      }
+    },
+    {
+      "tx_id": "b43123bf-4cde-49db-b165-b69868b599bb",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Solon",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
+      "balances_snapshot": {
+        "Solon": 491,
+        "survival_pool": 93
+      }
+    },
+    {
+      "tx_id": "ec398a95-8965-456f-bbdd-98ebaafaed7e",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Solon",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Solon": 488,
+        "survival_pool": 96
+      }
+    },
+    {
+      "tx_id": "8fcb201c-a427-4bf1-bc76-8c1bca8bbf4a",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Solon",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Solon": 486,
+        "survival_pool": 98
+      }
+    },
+    {
+      "tx_id": "293bcdd6-f965-4a30-9393-54aaaab9fba7",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Thalia",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
+      "balances_snapshot": {
+        "Thalia": 495,
+        "survival_pool": 103
+      }
+    },
+    {
+      "tx_id": "461e803f-557b-4dbd-aff6-1b01f011b7c8",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Thalia",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
+      "balances_snapshot": {
+        "Thalia": 491,
+        "survival_pool": 107
+      }
+    },
+    {
+      "tx_id": "6cb54802-aabd-41ec-ab3e-25e97ed7afdb",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Thalia",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Thalia": 488,
+        "survival_pool": 110
+      }
+    },
+    {
+      "tx_id": "18626372-f349-478d-bdd4-4c2a68217da8",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Thalia",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Thalia": 486,
+        "survival_pool": 112
+      }
+    },
+    {
+      "tx_id": "d79bf2df-2c7e-4a3e-9242-a2697c75d9fd",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Lysander",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
+      "balances_snapshot": {
+        "Lysander": 495,
+        "survival_pool": 117
+      }
+    },
+    {
+      "tx_id": "1698b09d-16bd-449a-8d55-c4dea6f5bb82",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Lysander",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
+      "balances_snapshot": {
+        "Lysander": 491,
+        "survival_pool": 121
+      }
+    },
+    {
+      "tx_id": "9170981a-9af2-4c8f-a9ae-67084c197299",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Lysander",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Lysander": 488,
+        "survival_pool": 124
+      }
+    },
+    {
+      "tx_id": "b97f7ebb-b8a7-4d36-b443-9a9a5f545c05",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Lysander",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Lysander": 486,
+        "survival_pool": 126
+      }
+    },
+    {
+      "tx_id": "b11460f9-01ad-4c30-878c-ab344cf34d28",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Phaedra",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
+      "balances_snapshot": {
+        "Phaedra": 495,
+        "survival_pool": 131
+      }
+    },
+    {
+      "tx_id": "3b13ca14-097a-4cd6-a889-aca9dd836af1",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Phaedra",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
+      "balances_snapshot": {
+        "Phaedra": 491,
+        "survival_pool": 135
+      }
+    },
+    {
+      "tx_id": "80407fd3-6872-4085-91a6-3ced1ca71ebc",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Phaedra",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Phaedra": 488,
+        "survival_pool": 138
+      }
+    },
+    {
+      "tx_id": "98a08faa-5f44-4f4e-9b95-f89862c2c659",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Phaedra",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Phaedra": 486,
+        "survival_pool": 140
+      }
+    },
+    {
+      "tx_id": "564c1db1-dc3e-4ed2-9d89-3dcf89c5e770",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Nikias",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
+      "balances_snapshot": {
+        "Nikias": 495,
+        "survival_pool": 145
+      }
+    },
+    {
+      "tx_id": "995b46ba-c940-43c7-82f1-286bdaffdf7f",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Nikias",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
+      "balances_snapshot": {
+        "Nikias": 491,
+        "survival_pool": 149
+      }
+    },
+    {
+      "tx_id": "4fcdab12-72fb-463b-b871-7346df4b5007",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Nikias",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Nikias": 488,
+        "survival_pool": 152
+      }
+    },
+    {
+      "tx_id": "197ad1c6-5549-476f-862d-6137dad84a3a",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Nikias",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Nikias": 486,
+        "survival_pool": 154
+      }
+    },
+    {
+      "tx_id": "9bbd65c7-ea8e-434d-b246-e328ffafd85f",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Calliope",
+      "to": "survival_pool",
+      "amount": 5,
+      "memo": "[UPKEEP:food] day=6",
+      "balances_snapshot": {
+        "Calliope": 495,
+        "survival_pool": 159
+      }
+    },
+    {
+      "tx_id": "2a117327-3b3b-48fa-9aa1-01a96ede3d09",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Calliope",
+      "to": "survival_pool",
+      "amount": 4,
+      "memo": "[UPKEEP:water] day=6",
+      "balances_snapshot": {
+        "Calliope": 491,
+        "survival_pool": 163
+      }
+    },
+    {
+      "tx_id": "de8173ff-e657-4611-8c9c-771cfe0237c5",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Calliope",
+      "to": "survival_pool",
+      "amount": 3,
+      "memo": "[UPKEEP:shelter] day=6",
+      "balances_snapshot": {
+        "Calliope": 488,
+        "survival_pool": 166
+      }
+    },
+    {
+      "tx_id": "3764499c-8572-485a-96ce-baa269155c36",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Calliope",
+      "to": "survival_pool",
+      "amount": 2,
+      "memo": "[UPKEEP:healthcare] day=6",
+      "balances_snapshot": {
+        "Calliope": 486,
+        "survival_pool": 168
+      }
+    },
+    {
+      "tx_id": "5cf9f8ba-e730-470d-a4b4-1b1eb929eb14",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Prometheus",
+      "to": "Themis",
+      "amount": 14,
+      "memo": "Midday Fair: Prometheus purchased grain/water rights from Themis",
+      "balances_snapshot": {
+        "Prometheus": 472,
+        "Themis": 500
+      }
+    },
+    {
+      "tx_id": "4e865b51-0c8f-48c0-a4d0-643fd3f39828",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Calliope",
+      "to": "Lysander",
+      "amount": 7,
+      "memo": "Midday Fair: Calliope purchased grain/water rights from Lysander",
+      "balances_snapshot": {
+        "Calliope": 479,
+        "Lysander": 493
+      }
+    },
+    {
+      "tx_id": "fa312a96-9a88-4e66-a635-b7343c8605b1",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Solon",
+      "to": "Athena",
+      "amount": 16,
+      "memo": "Midday Fair: Solon purchased grain/water rights from Athena",
+      "balances_snapshot": {
+        "Solon": 470,
+        "Athena": 502
+      }
+    },
+    {
+      "tx_id": "1ca218bc-7f42-48f4-ac45-59d90aa6cbec",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Nikias",
+      "to": "Thalia",
+      "amount": 13,
+      "memo": "Midday Fair: Nikias purchased grain/water rights from Thalia",
+      "balances_snapshot": {
+        "Nikias": 473,
+        "Thalia": 499
+      }
+    },
+    {
+      "tx_id": "461657cd-c096-4318-94f1-5a9087581675",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Dione",
+      "to": "Phaedra",
+      "amount": 18,
+      "memo": "Midday Fair: Dione purchased grain/water rights from Phaedra",
+      "balances_snapshot": {
+        "Dione": 468,
+        "Phaedra": 504
+      }
+    },
+    {
+      "tx_id": "8dbaf13a-dfb8-498a-b5b5-d16184426e59",
+      "timestamp": 1795386651,
+      "date": "2026-11-22T22:30:51Z",
+      "from": "Orion",
+      "to": "Hermes",
+      "amount": 18,
+      "memo": "Midday Fair: Orion purchased grain/water rights from Hermes",
+      "balances_snapshot": {
+        "Orion": 468,
+        "Hermes": 504
       }
     }
   ],

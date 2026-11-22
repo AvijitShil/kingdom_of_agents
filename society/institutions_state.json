@@ -1,1 +1,23 @@
-{}
+{
+  "army_e0877d6a": {
+    "institution_id": "army_e0877d6a",
+    "name": "Hoplite Phalanx",
+    "institution_type": "Army",
+    "owner": "Lysander",
+    "treasury_account": "Lysander",
+    "treasury_balance": 226.0,
+    "members": [
+      "Orion",
+      "Nikias"
+    ],
+    "status": "Active",
+    "founded_day": 6,
+    "metadata": {},
+    "is_army": true,
+    "soldiers": [
+      "Orion",
+      "Nikias"
+    ],
+    "morale": 0.8
+  }
+}

@@ -101,6 +101,9 @@ class CivilizationalSimulator:
         """Load persistent states or bootstrap founding civilization if clean."""
         if os.path.isfile(self.ledger_file):
             self.ledger.load_state(self.ledger_file)
+            # Ensure Greek founding agents are present; if legacy state loaded, bootstrap
+            if any(name not in self.ledger.balances for name in GREEK_FOUNDING_CITIZENS):
+                self.ledger.register_founding_civilization()
         else:
             self.ledger.register_founding_civilization()
 

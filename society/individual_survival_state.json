@@ -1,74 +1,80 @@
 {
   "Athena": {
     "name": "Athena",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
   },
   "Hermes": {
     "name": "Hermes",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
   },
   "Prometheus": {
     "name": "Prometheus",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
   },
   "Themis": {
     "name": "Themis",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
   },
   "Orion": {
     "name": "Orion",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
   },
   "Dione": {
     "name": "Dione",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
   },
   "Solon": {
     "name": "Solon",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
   },
   "Thalia": {
     "name": "Thalia",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
   },
   "Lysander": {
     "name": "Lysander",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
   },
   "Phaedra": {
     "name": "Phaedra",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
   },
   "Nikias": {
     "name": "Nikias",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
   },
   "Calliope": {
     "name": "Calliope",
-    "state": "CRITICAL",
-    "consecutive_critical_days": 1,
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
     "last_upkeep_day": 6
+  },
+  "Thetis": {
+    "name": "Thetis",
+    "state": "SECURE",
+    "consecutive_critical_days": 0,
+    "last_upkeep_day": -1
   }
 }

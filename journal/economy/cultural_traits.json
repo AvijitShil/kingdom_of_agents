@@ -22,5 +22,29 @@
     "social_effects": {},
     "parent_trait_id": null,
     "transformed_traits": []
+  },
+  "trait_b5a7d08b": {
+    "trait_id": "trait_b5a7d08b",
+    "name": "Cistern Desilting Guild (Day 6)",
+    "category": "social_institution",
+    "creator_agent": "Prometheus",
+    "origin_day": 6,
+    "description": "Cooperative labor sharing for cleaning civic water channels.",
+    "transmission_type": "success",
+    "adoption_history": [
+      {
+        "agent": "Prometheus",
+        "day": 6,
+        "source_agent": "",
+        "timestamp": 1795386651
+      }
+    ],
+    "status": "emerging",
+    "economic_effects": {
+      "upkeep_reduction": 0.1
+    },
+    "social_effects": {},
+    "parent_trait_id": null,
+    "transformed_traits": []
   }
 }

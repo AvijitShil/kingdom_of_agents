@@ -3,16 +3,18 @@
 *Observatory Dispatch Filed by Chronos*
 
 **Cycle Focus**: Cultural Traditions, Intergenerational Education & Night Conspiracies
-**Active Living Population**: 12 citizens
-**Conserved Supply Invariant**: 9000 tokens (Gini: 0.318)
+**Active Living Population**: 13 citizens
+**Conserved Supply Invariant**: 10000 tokens (Gini: 0.298)
 
 ---
 
 ## ⚡ CHRONICLED EVENTS IN THIS 6-HOUR WINDOW
-- New cultural tradition established by Lysander.
+- Thetis born with 60 tokens starter endowment.
+- New cultural tradition established by Prometheus.
 
 ## 🏛️ VOICES OF THE AGORA & CITIZEN DELIBERATIONS
-- **Lysander** (12:00 AM): "I introduce the Cistern Desilting Guild (Day 6). Collective maintenance reduces our daily water burn."
+- **Prometheus & Dione** (12:00 AM): "We welcome our child Thetis into the lineage of Prometheus and Dione!"
+- **Prometheus** (12:00 AM): "I introduce the Cistern Desilting Guild (Day 6). Collective maintenance reduces our daily water burn."
 
 ---
 *Next Observatory Dispatch in 6 hours.*
