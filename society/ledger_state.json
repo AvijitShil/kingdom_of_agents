@@ -1,9 +1,9 @@
 {
   "total_supply": 10000,
   "balances": {
-    "clan_alpha_technocrats": 3395,
-    "clan_beta_merchants": 2365,
-    "clan_gamma_jurists": 3240
+    "clan_alpha_technocrats": 3475,
+    "clan_beta_merchants": 2245,
+    "clan_gamma_jurists": 3280
   },
   "transactions": [
     {
@@ -82,6 +82,33 @@
       "to": "clan_gamma_jurists",
       "amount": 40,
       "memo": "Day 04 Crisis: Court Escrow & Inspection Retainer"
+    },
+    {
+      "tx_id": "4fa78027-6bc4-4bc2-96d8-982274ce6cb0",
+      "timestamp": 1795385995,
+      "date": "2026-11-22T22:19:55Z",
+      "from": "clan_beta_merchants",
+      "to": "clan_alpha_technocrats",
+      "amount": 80,
+      "memo": "Day 05 Crisis: Emergency Water-Grain Quota",
+      "balances_snapshot": {
+        "clan_beta_merchants": 2285,
+        "clan_alpha_technocrats": 3475
+      }
+    },
+    {
+      "tx_id": "1bb37084-9df6-4cf1-9eb7-1e48ed64cdc3",
+      "timestamp": 1795385995,
+      "date": "2026-11-22T22:19:55Z",
+      "from": "clan_beta_merchants",
+      "to": "clan_gamma_jurists",
+      "amount": 40,
+      "memo": "Day 05 Crisis: Court Escrow & Inspection Retainer",
+      "balances_snapshot": {
+        "clan_beta_merchants": 2245,
+        "clan_gamma_jurists": 3280
+      }
     }
-  ]
+  ],
+  "loans": {}
 }

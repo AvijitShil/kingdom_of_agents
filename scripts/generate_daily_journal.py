@@ -736,14 +736,57 @@ def run_day(day: int = 1):
         crisis_details=daily_crisis,
     )
 
-    # 8. Save Gazette to journal/ and journals/
-    for folder_name in ["journal", "journals"]:
+    # 8. Save Gazette to journal/, journals/, and journal/daily/
+    for folder_name in ["journal", "journals", os.path.join("journal", "daily")]:
         target_dir = os.path.join(REPO_ROOT, folder_name)
         os.makedirs(target_dir, exist_ok=True)
         target_path = os.path.join(target_dir, f"{date_str}.md")
         with open(target_path, "w", encoding="utf-8") as f:
             f.write(gazette_content)
-    print(f"    [+] The Kingdom Gazette published to journal/{date_str}.md and journals/{date_str}.md")
+    print(f"    [+] The Kingdom Gazette published to journal/{date_str}.md and journal/daily/{date_str}.md")
+
+    # Chronos Observatory Event & Profile Logging
+    try:
+        from observer.chronos import Chronos, EventType
+        chronos = Chronos(journal_root=os.path.join(REPO_ROOT, "journal"))
+        # Log major agora speeches
+        for msg in agora.messages:
+            chronos.log_event(
+                event_type=EventType.SPEECH,
+                sim_day=day,
+                sim_date=date_str,
+                agents=[msg.sender],
+                speech=msg.public_message,
+                intent=msg.intent,
+                executed_action=f"posted to {msg.target} in Agora",
+                outcome=f"Message recorded; doctrine reference: {msg.codebook_reference}",
+            )
+        # Log transactions
+        for tx in ledger.transactions[-10:]:
+            chronos.log_event(
+                event_type=EventType.TRANSACTION,
+                sim_day=day,
+                sim_date=date_str,
+                agents=[tx.get("from", ""), tx.get("to", "")],
+                speech="",
+                intent="economic exchange",
+                executed_action=f"transfer {tx.get('amount', 0)} tokens {tx.get('from')} -> {tx.get('to')}",
+                outcome=tx.get("memo", "token transfer"),
+            )
+        # Update running profiles for active households
+        for aid, h in kinship_registry.households.items():
+            chronos.update_agent_profile(
+                name=h.agent_name,
+                birth_day=1,
+                clan=h.clan_id,
+                spouse=h.spouse_name,
+                day=day,
+                survival_state=h.status,
+            )
+        chronos.flush_day(day, date_str)
+        print(f"    [+] Chronos Observatory logged events and flushed transcript for {date_str}.")
+    except Exception as e:
+        print(f"    [*] Chronos logging note: {e}")
 
     # 9. Save Persistent State for Next Day
     metabolic_engine.save_state(survival_state_file)
