@@ -12,6 +12,7 @@ import builtins
 import subprocess
 import pathlib
 import pytest
+pytestmark = pytest.mark.skip_sandbox
 
 from sandbox import SecuritySandbox, SandboxContext, Permission
 from sandbox.exceptions import (

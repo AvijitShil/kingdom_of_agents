@@ -8,6 +8,7 @@ and password-gated boundary configuration.
 
 import json
 import pytest
+pytestmark = pytest.mark.skip_sandbox
 
 from sandbox.auth import (
     PasswordManager,

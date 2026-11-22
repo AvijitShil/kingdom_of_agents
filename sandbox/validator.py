@@ -200,7 +200,7 @@ class PathValidator:
         norm_canonical = os.path.normcase(str(canonical_path))
 
         # Check system-protected files against writes / modification
-        if bool(required_perm & (Permission.WRITE | Permission.EXECUTE)):
+        if required_perm in (Permission.WRITE, Permission.EXECUTE, Permission.READ_WRITE, Permission.ALL):
             for prot in self.protected_files:
                 prot_canon = os.path.normcase(str((self.primary_root / prot).resolve()))
                 if norm_canonical == prot_canon:

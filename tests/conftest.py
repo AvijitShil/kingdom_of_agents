@@ -11,8 +11,8 @@ import pathlib
 import pytest
 from typing import Dict, Any, List, Optional
 
-from harness.adapter import DeepSeekHarnessAdapter
-from knowledge_base.models import IdeologicalProfile
+from kingdom_of_agents.harness.adapter import DeepSeekHarnessAdapter
+from kingdom_of_agents.knowledge_base.models import IdeologicalProfile
 
 
 # Cache pristine unpatched references to ensure complete test isolation
@@ -26,19 +26,34 @@ _ORIG_SOCKET_SENDTO = socket.socket.sendto
 @pytest.fixture(autouse=True)
 def clean_sandbox_hooks():
     """Autouse fixture ensuring pristine builtins, subprocess, and socket references
-    before and after every test execution.
+    before and after every test execution. Also resets any lingering sandbox global state.
     """
+    # Reset builtins and subprocess/socket to original implementations
     builtins.open = _ORIG_BUILTIN_OPEN
     io.open = _ORIG_IO_OPEN
     subprocess.Popen = _ORIG_SUBPROCESS_POPEN
     socket.socket.connect = _ORIG_SOCKET_CONNECT
     socket.socket.sendto = _ORIG_SOCKET_SENDTO
+    # Reset sandbox context globals
+    from sandbox.context import SandboxContext
+    from sandbox.network import NetworkGuard
+    SandboxContext._global_depth = 0
+    SandboxContext._active_contexts.clear()
+    # Reset network guard globals
+    NetworkGuard._global_depth = 0
+    NetworkGuard._active_guards.clear()
     yield
+    # Ensure cleanup after test as well
     builtins.open = _ORIG_BUILTIN_OPEN
     io.open = _ORIG_IO_OPEN
     subprocess.Popen = _ORIG_SUBPROCESS_POPEN
     socket.socket.connect = _ORIG_SOCKET_CONNECT
     socket.socket.sendto = _ORIG_SOCKET_SENDTO
+    # Reset any remaining sandbox globals in case test altered them
+    SandboxContext._global_depth = 0
+    SandboxContext._active_contexts.clear()
+    NetworkGuard._global_depth = 0
+    NetworkGuard._active_guards.clear()
 
 
 @pytest.fixture

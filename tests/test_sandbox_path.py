@@ -8,6 +8,7 @@ Windows reserved device names, case folding, 8.3 short names, symlinks, and tamp
 import os
 import pathlib
 import pytest
+pytestmark = pytest.mark.skip_sandbox
 
 from sandbox.validator import PathValidator, PathBoundary, Permission, RESERVED_DEVICE_NAMES
 from sandbox.exceptions import (

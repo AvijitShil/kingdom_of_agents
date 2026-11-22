@@ -10,7 +10,7 @@ import os
 import pathlib
 from typing import Union, Optional, List, Set
 
-from sandbox.exceptions import (
+from .exceptions import (
     SecuritySandboxViolation,
     PathTraversalViolation,
     AlternateDataStreamViolation,
@@ -20,30 +20,30 @@ from sandbox.exceptions import (
     AuthenticationError,
     TamperProtectionViolation,
 )
-from sandbox.validator import (
+from .validator import (
     Permission,
     PathBoundary,
     PathValidator,
     RESERVED_DEVICE_NAMES,
 )
-from sandbox.execution import (
+from .execution import (
     ExecutionGuard,
     APPROVED_SYSTEM_BINARIES,
     SHELL_OPERATORS,
 )
-from sandbox.network import (
+from .network import (
     NetworkGuard,
     DEFAULT_LOOPBACK_HOSTS,
 )
-from sandbox.auth import (
+from .auth import (
     PasswordManager,
     PBKDF2_ITERATIONS,
     SALT_BYTES,
     MIN_PASSWORD_LENGTH,
     DEFAULT_ADMIN_PASSWORD,
 )
-from sandbox.context import SandboxContext
-from sandbox.config import (
+from .context import SandboxContext
+from .config import (
     SandboxConfig,
     DEFAULT_PROJECT_ROOT,
     DEFAULT_DESIGNATED_MODEL_PATH,

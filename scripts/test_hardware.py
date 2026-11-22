@@ -5,8 +5,12 @@ Hardware Benchmark: Gemma 4 E4B on Intel Arc A380 (GPU.1) via OpenVINO GenAI
 import os
 import sys
 import time
-import openvino_genai as ov_genai
-import openvino as ov
+try:
+    import openvino_genai as ov_genai
+    import openvino as ov
+except ImportError:
+    ov_genai = None
+    ov = None
 
 MODEL_DIR = os.path.expanduser(r"~\.cache\models\gemma-4-E4B-it-int4-ov")
 DEVICE = "GPU.1"

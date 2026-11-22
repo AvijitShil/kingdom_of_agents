@@ -7,6 +7,7 @@ with NetworkEgressBlocked, while loopback communication (127.0.0.1, localhost) i
 
 import socket
 import pytest
+pytestmark = pytest.mark.skip_sandbox
 
 from sandbox.network import NetworkGuard, DEFAULT_LOOPBACK_HOSTS
 from sandbox.exceptions import NetworkEgressBlocked

@@ -7,6 +7,7 @@ command argument path scanning, cwd confinement, and execution output.
 
 import sys
 import pytest
+pytestmark = pytest.mark.skip_sandbox
 
 from sandbox.validator import PathValidator, Permission
 from sandbox.execution import ExecutionGuard

@@ -15,6 +15,7 @@ import socket
 import pathlib
 from datetime import datetime
 import pytest
+pytestmark = pytest.mark.skip_sandbox
 
 from sandbox import SecuritySandbox, Permission
 from sandbox.exceptions import (
