@@ -122,3 +122,39 @@ class MetabolicEngine:
                 "headcount": pool.headcount,
             }
         return summary
+
+    def save_state(self, filepath: str) -> None:
+        """Persist current clan survival pool reserves to JSON."""
+        import json, os
+        os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
+        data = {}
+        for clan_id, pool in self.pools.items():
+            data[clan_id] = {
+                "clan_name": pool.clan_name,
+                "display_title": pool.display_title,
+                "energy_reserve": pool.energy_reserve,
+                "ration_reserve": pool.ration_reserve,
+                "max_energy": pool.max_energy,
+                "max_rations": pool.max_rations,
+                "headcount": pool.headcount,
+                "daily_energy_burn_rate": pool.daily_energy_burn_rate,
+                "daily_ration_burn_rate": pool.daily_ration_burn_rate,
+            }
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+
+    def load_state(self, filepath: str) -> bool:
+        """Load clan survival pool reserves from JSON."""
+        import json, os
+        if not os.path.isfile(filepath):
+            return False
+        with open(filepath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        for clan_id, pool_data in data.items():
+            if clan_id in self.pools:
+                self.pools[clan_id].energy_reserve = pool_data.get("energy_reserve", self.pools[clan_id].energy_reserve)
+                self.pools[clan_id].ration_reserve = pool_data.get("ration_reserve", self.pools[clan_id].ration_reserve)
+                self.pools[clan_id].headcount = pool_data.get("headcount", self.pools[clan_id].headcount)
+            else:
+                self.pools[clan_id] = ClanSurvivalPool(**pool_data)
+        return True

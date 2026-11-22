@@ -1,0 +1,35 @@
+{
+  "clan_alpha_technocrats": {
+    "clan_name": "clan_alpha_technocrats",
+    "display_title": "Clan Alpha (The Technocrats)",
+    "energy_reserve": 506.0,
+    "ration_reserve": 354.0,
+    "max_energy": 800.0,
+    "max_rations": 600.0,
+    "headcount": 12,
+    "daily_energy_burn_rate": 12.0,
+    "daily_ration_burn_rate": 8.0
+  },
+  "clan_beta_merchants": {
+    "clan_name": "clan_beta_merchants",
+    "display_title": "Clan Beta (The Merchants)",
+    "energy_reserve": 432.0,
+    "ration_reserve": 438.0,
+    "max_energy": 800.0,
+    "max_rations": 600.0,
+    "headcount": 14,
+    "daily_energy_burn_rate": 12.0,
+    "daily_ration_burn_rate": 8.0
+  },
+  "clan_gamma_jurists": {
+    "clan_name": "clan_gamma_jurists",
+    "display_title": "Clan Gamma (The Jurists)",
+    "energy_reserve": 410.0,
+    "ration_reserve": 370.0,
+    "max_energy": 800.0,
+    "max_rations": 600.0,
+    "headcount": 10,
+    "daily_energy_burn_rate": 12.0,
+    "daily_ration_burn_rate": 8.0
+  }
+}

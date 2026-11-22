@@ -38,3 +38,27 @@ class SocietyLedger:
             "balances": self.balances,
             "velocity": f"{len(self.transactions) / max(1, len(self.balances)):.2f}x"
         }
+
+    def save_state(self, filepath: str) -> None:
+        """Persist account balances and transaction history to JSON."""
+        import json, os
+        os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
+        data = {
+            "total_supply": self.total_supply,
+            "balances": self.balances,
+            "transactions": self.transactions,
+        }
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+
+    def load_state(self, filepath: str) -> bool:
+        """Load account balances and transaction history from JSON."""
+        import json, os
+        if not os.path.isfile(filepath):
+            return False
+        with open(filepath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        self.total_supply = data.get("total_supply", self.total_supply)
+        self.balances = data.get("balances", self.balances)
+        self.transactions = data.get("transactions", self.transactions)
+        return True
