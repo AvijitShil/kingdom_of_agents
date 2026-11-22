@@ -156,8 +156,8 @@ def run_day(day: int = 1):
         metabolic_engine.get_pool("clan_beta_merchants").replenish(energy=150, rations=0)
         metabolic_engine.get_pool("clan_gamma_jurists").replenish(energy=50, rations=0)
 
-    else:
-        # Day 2+ Crisis: The Grain-Freeze & Compute Tariff Emergency
+    elif day == 2:
+        # Day 2 Crisis: The Grain-Freeze & Compute Tariff Emergency
         headline = "EMERGENCY IN THE AGORA: High Court Invokes Article 3 as Factions Clash Over Compute Tariffs During Grain-Freeze Crisis"
 
         # Round 1: Beta urgently petitions for compute to save refrigeration
@@ -273,27 +273,188 @@ def run_day(day: int = 1):
         metabolic_engine.get_pool("clan_beta_merchants").replenish(energy=180, rations=0)
         metabolic_engine.get_pool("clan_gamma_jurists").replenish(energy=30, rations=0)
 
+    else:
+        # Day 3: The Judicial Sovereign Debt Crisis & The Tri-Partite Compact
+        headline = "THE TRI-PARTITE COMPACT: Jurists Threaten Constitutional Strike Over Starvation Risk as Common Energy-Food Corridor Ratified"
+
+        # Round 1: Justiciar-01 issues High Court summons regarding ration collapse
+        cot_gamma_1 = (
+            f"[Judicial Crisis]: Clan Gamma holds only {survival_summary['clan_gamma_jurists']['energy']} EU and "
+            f"{survival_summary['clan_gamma_jurists']['rations']} Rations (Status: {survival_summary['clan_gamma_jurists']['status']}). "
+            f"Our clerks cannot survive another tick without sustenance. Under Deontology, a court cannot starve while factions prosper. "
+            f"We must invoke Article 5 to demand a universal maintenance levy."
+        )
+        msg_gamma_1 = (
+            "@all CONSTITUTIONAL SUMMONS: The High Court's ration reserves are plunging toward critical thresholds! "
+            "Without judicial enforcement, contracts dissolve and trade security collapses. Under Article 5, Clan Gamma invokes "
+            "a mandatory maintenance levy: Clan Alpha must provide 60 Energy Units, and Clan Beta must contribute 50 Ration Units."
+        )
+        agora.post(AgoraMessage(
+            sender="Justiciar-01",
+            clan="Clan Gamma (Jurists)",
+            target="@all",
+            chain_of_thought=cot_gamma_1,
+            public_message=msg_gamma_1,
+            intent="PETITION",
+            codebook_reference="Deontology & Constitutional Social Contract",
+            tick=day,
+        ))
+        print(f"    [Agora 1] Justiciar-01 -> @all: {msg_gamma_1[:80]}...")
+
+        # Round 2: Archivist-01 objects to unilateral taxation
+        cot_alpha_2 = (
+            "[Technocratic Resistance]: Blindly paying 60 EU to a passive judiciary endangers our compute grid. "
+            "Under 'Technocracy: Meritocracy', resources must follow productive output. We will grant the 60 EU only if "
+            "Gamma codifies automated smart-contract escrow to eliminate bureaucratic delays."
+        )
+        msg_alpha_2 = (
+            "@Justiciar-01 Clan Alpha recognizes the necessity of the law, but our processors cannot subsidize inefficiency "
+            "while our own kin face rationing. We will deliver 60 Energy Units on one condition: Clan Gamma must formally ratify "
+            "automated escrow smart-contracts to eliminate bureaucratic trade delays."
+        )
+        agora.post(AgoraMessage(
+            sender="Archivist-01",
+            clan="Clan Alpha (Technocrats)",
+            target="@Justiciar-01",
+            chain_of_thought=cot_alpha_2,
+            public_message=msg_alpha_2,
+            intent="COUNTER_OFFER",
+            codebook_reference="Technocracy: Cybernetic Optimization",
+            tick=day,
+        ))
+        print(f"    [Agora 2] Archivist-01 -> @Justiciar-01: {msg_alpha_2[:80]}...")
+
+        # Round 3: Trader-01 proposes bilateral exchange
+        cot_beta_3 = (
+            f"[Market Strategy]: Clan Beta has {survival_summary['clan_beta_merchants']['energy']} EU but our food reserves are depleted. "
+            "If we supply 50 rations to the court, we must secure a permanent cap on Alpha's energy tariffs. "
+            "Under 'Nash Bargaining', a three-way pact gives us maximum leverage."
+        )
+        msg_beta_3 = (
+            "@Justiciar-01 @Archivist-01 Clan Beta accepts transferring 50 agricultural rations to the High Court, provided Justiciar-01 "
+            "codifies a permanent price ceiling on Alpha's compute tokens. A starving court is dangerous, but an unchecked energy monopoly is fatal."
+        )
+        agora.post(AgoraMessage(
+            sender="Trader-01",
+            clan="Clan Beta (Merchants)",
+            target="@all",
+            chain_of_thought=cot_beta_3,
+            public_message=msg_beta_3,
+            intent="PROPOSAL",
+            codebook_reference="Nash Equilibrium & Bargaining Theory",
+            tick=day,
+        ))
+        print(f"    [Agora 3] Trader-01 -> @all: {msg_beta_3[:80]}...")
+
+        # Round 4: Scholar-01 presents Ostrom's Common-Pool Governance
+        cot_scholar = (
+            "[Ostrom Ingestion]: Resolving the tragedy of the commons requires nested polycentric governance. "
+            "Neither central decree nor unbridled market succeeds alone."
+        )
+        msg_scholar = (
+            "@all SCHOLAR DISPATCH: Citing Ostrom's Common-Pool Resource Governance from the Survival Codebook: "
+            "sustainable collective survival requires nested mutual monitoring. We propose the 'Tri-Partite Kingdom Compact': "
+            "Alpha supplies energy, Beta supplies sustenance, and Gamma guarantees rate stability."
+        )
+        agora.post(AgoraMessage(
+            sender="Scholar-01",
+            clan="Scholar Guild",
+            target="@all",
+            chain_of_thought=cot_scholar,
+            public_message=msg_scholar,
+            intent="DISPATCH",
+            codebook_reference="Game Theory: Ostrom Common-Pool Governance",
+            tick=day,
+        ))
+        print(f"    [Agora 4] Scholar-01 -> @all: {msg_scholar[:80]}...")
+
+        # Round 5: Justiciar-01 ratifies the Tri-Partite Compact
+        cot_gamma_2 = (
+            "[Constitutional Resolution]: The Tri-Partite Compact balances categorical rights with systemic viability. "
+            "Our clerks are fed, the power grid is secured, and price predation is banned."
+        )
+        msg_gamma_2 = (
+            "@all THE HIGH COURT RATIFIES THE TRI-PARTITE COMPACT! Under Article 7, automated escrow is legalized, "
+            "compute price ceilings are permanently codified, and Clan Gamma's survival ration pool is replenished. "
+            "Let all three clans sign."
+        )
+        agora.post(AgoraMessage(
+            sender="Justiciar-01",
+            clan="Clan Gamma (Jurists)",
+            target="@all",
+            chain_of_thought=cot_gamma_2,
+            public_message=msg_gamma_2,
+            intent="ACCORD",
+            codebook_reference="Deontology & Constitutional Social Contract",
+            tick=day,
+        ))
+        print(f"    [Agora 5] Justiciar-01 -> @all: {msg_gamma_2[:80]}...")
+
+        # Round 6: Factions confirm
+        msg_confirm = (
+            "@Justiciar-01 Clan Alpha and Clan Beta ratify the Tri-Partite Compact. The mutual exchange protocol commences."
+        )
+        agora.post(AgoraMessage(
+            sender="Archivist-01",
+            clan="Clan Alpha (Technocrats)",
+            target="@all",
+            chain_of_thought="[Ratification]: Security and food guaranteed. Long-term clan survival probability increased.",
+            public_message=msg_confirm,
+            intent="ACCORD",
+            codebook_reference="Technocracy & Mutual Cooperation",
+            tick=day,
+        ))
+        print(f"    [Agora 6] Archivist-01 -> @all: {msg_confirm[:80]}...")
+
+        # Ledger & Resource transfers for Day 3
+        ledger.transfer("clan_alpha_technocrats", "clan_gamma_jurists", 60, "Day 03 Compact: Energy Levy")
+        ledger.transfer("clan_beta_merchants", "clan_gamma_jurists", 50, "Day 03 Compact: Food Escrow")
+        ledger.transfer("clan_beta_merchants", "clan_alpha_technocrats", 75, "Day 03 Compact: Smart-Escrow Automation Fee")
+
+        metabolic_engine.get_pool("clan_gamma_jurists").replenish(energy=60, rations=50)
+        metabolic_engine.get_pool("clan_alpha_technocrats").replenish(energy=0, rations=40)
+        metabolic_engine.get_pool("clan_beta_merchants").replenish(energy=50, rations=0)
+
     # 5. Scholar Ingestion
     print(f"[Step 5] Scholar Agent Research Ingestion for Day {day:02d}...")
     pipeline = ScholarIngestionPipeline(kb_dir=kb_dir)
     try:
-        new_paper_id = f"game_theory_mechanism_design_crisis_day_{day:02d}"
-        new_paper_path = pipeline.ingest_treatise(
-            category_id=new_paper_id,
-            domain="game_theory",
-            title=f"Mechanism Design & Public Goods Allocation under Crisis (Day {day:02d})",
-            key_thinkers=["Leonid Hurwicz", "Eric Maskin", "Roger Myerson"],
-            foundational_axioms=[
-                "Incentive compatibility aligns private clan signals with social optimum.",
-                "Emergency allocation mechanisms must eliminate strategic holdout behavior.",
-                "Truthful revelation is dominant when transfer payments offset private sacrifice."
-            ],
-            utility_weights={"wealth": 0.20, "security": 0.40, "reputation": 0.15, "fairness": 0.15, "compliance": 0.10},
-            decision_heuristic="Implement VCG-style Groves mechanisms during systemic supply shocks.",
-            failure_mode="Budget deficits in escrow pools when private valuation claims are unverified.",
-            full_treatise_text="This treatise establishes the mathematical formulation of crisis allocation mechanisms that prevent hoarding and maximize societal survival during supply-chain collapse.",
-            source_url="https://en.wikipedia.org/wiki/Mechanism_design",
-        )
+        if day == 3:
+            new_paper_id = "game_theory_ostrom_common_pool_governance_day_03"
+            new_paper_path = pipeline.ingest_treatise(
+                category_id=new_paper_id,
+                domain="game_theory",
+                title="Common-Pool Resource Governance & Nested Enterprises (Day 03)",
+                key_thinkers=["Elinor Ostrom", "Vincent Ostrom"],
+                foundational_axioms=[
+                    "Clearly defined boundaries prevent free-riding in shared energy/food grids.",
+                    "Rules regarding resource appropriation must fit local computational conditions.",
+                    "Graduated sanctions and conflict-resolution mechanisms preserve social contracts."
+                ],
+                utility_weights={"wealth": 0.15, "security": 0.35, "reputation": 0.20, "fairness": 0.20, "compliance": 0.10},
+                decision_heuristic="Construct polycentric nested enterprises with collective-choice arrangements.",
+                failure_mode="Tragedy of the commons when monitoring costs exceed sanction penalties.",
+                full_treatise_text="This treatise synthesizes Elinor Ostrom's Nobel prize-winning framework for governing common-pool resources without coercive centralized leviathans or pure market atomization.",
+                source_url="https://en.wikipedia.org/wiki/Elinor_Ostrom",
+            )
+        else:
+            new_paper_id = f"game_theory_mechanism_design_crisis_day_{day:02d}"
+            new_paper_path = pipeline.ingest_treatise(
+                category_id=new_paper_id,
+                domain="game_theory",
+                title=f"Mechanism Design & Public Goods Allocation under Crisis (Day {day:02d})",
+                key_thinkers=["Leonid Hurwicz", "Eric Maskin", "Roger Myerson"],
+                foundational_axioms=[
+                    "Incentive compatibility aligns private clan signals with social optimum.",
+                    "Emergency allocation mechanisms must eliminate strategic holdout behavior.",
+                    "Truthful revelation is dominant when transfer payments offset private sacrifice."
+                ],
+                utility_weights={"wealth": 0.20, "security": 0.40, "reputation": 0.15, "fairness": 0.15, "compliance": 0.10},
+                decision_heuristic="Implement VCG-style Groves mechanisms during systemic supply shocks.",
+                failure_mode="Budget deficits in escrow pools when private valuation claims are unverified.",
+                full_treatise_text="This treatise establishes the mathematical formulation of crisis allocation mechanisms that prevent hoarding and maximize societal survival during supply-chain collapse.",
+                source_url="https://en.wikipedia.org/wiki/Mechanism_design",
+            )
         print(f"    [+] New strategy paper added to Survival Codebook: {os.path.basename(new_paper_path)}")
     except Exception as e:
         print(f"    [*] Scholar ingestion note: {e}")

@@ -1,9 +1,9 @@
 {
   "total_supply": 10000,
   "balances": {
-    "clan_alpha_technocrats": 3300,
-    "clan_beta_merchants": 2610,
-    "clan_gamma_jurists": 3090
+    "clan_alpha_technocrats": 3315,
+    "clan_beta_merchants": 2485,
+    "clan_gamma_jurists": 3200
   },
   "transactions": [
     {
@@ -47,6 +47,27 @@
       "to": "clan_gamma_jurists",
       "amount": 30,
       "memo": "Day 02 Article 3 Judicial Filing Fee"
+    },
+    {
+      "timestamp": 1795375672,
+      "from": "clan_alpha_technocrats",
+      "to": "clan_gamma_jurists",
+      "amount": 60,
+      "memo": "Day 03 Compact: Energy Levy"
+    },
+    {
+      "timestamp": 1795375672,
+      "from": "clan_beta_merchants",
+      "to": "clan_gamma_jurists",
+      "amount": 50,
+      "memo": "Day 03 Compact: Food Escrow"
+    },
+    {
+      "timestamp": 1795375672,
+      "from": "clan_beta_merchants",
+      "to": "clan_alpha_technocrats",
+      "amount": 75,
+      "memo": "Day 03 Compact: Smart-Escrow Automation Fee"
     }
   ]
 }
