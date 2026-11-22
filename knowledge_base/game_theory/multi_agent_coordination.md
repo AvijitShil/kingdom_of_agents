@@ -28,7 +28,7 @@ failure_modes:
 cross_references:
   - "game_theory.nash_equilibrium"
   - "political_ideology.socialism_communitarianism"
-  - "philosophy.ethics"
+  - "philosophy.deontology"
 ---
 
 # Multi-Agent Coordination: Common-Pool Resources, Ostrom Principles, and Coalitions

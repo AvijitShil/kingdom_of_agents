@@ -27,7 +27,7 @@ failure_modes:
   - "Antidote: Combine communitarian solidarity with Ostrom's rigorous peer monitoring and contribution-weighted voting tokens."
 cross_references:
   - "game_theory.multi_agent_coordination"
-  - "philosophy.ethics"
+  - "philosophy.utilitarianism"
   - "religious_ideology.dharmic_karma"
 ---
 

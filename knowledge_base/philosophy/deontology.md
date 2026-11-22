@@ -26,7 +26,7 @@ failure_modes:
   - "Pathology: Inflexible rigorism causing catastrophe when two prima facie duties directly collide."
   - "Antidote: Adopt W.D. Ross's framework of prima facie duties: rank competing duties by foundational urgency (non-maleficence > promise keeping > beneficence)."
 cross_references:
-  - "philosophy.ethics"
+  - "philosophy.pragmatism"
   - "philosophy.utilitarianism"
   - "religious_ideology.abrahamic_covenantal"
 ---

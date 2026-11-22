@@ -27,7 +27,7 @@ failure_modes:
   - "Antidote: Camusian heroic perseverance: forge meaning and value through relentless craftsmanship and social solidarity."
 cross_references:
   - "philosophy.metaphysics"
-  - "philosophy.virtue_ethics"
+  - "philosophy.stoicism"
   - "psychology.maslow_hierarchy"
 ---
 
