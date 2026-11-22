@@ -27,7 +27,7 @@ failure_modes:
   - "Antidote: Integrate prophetic mercy, grace, and humility: recognize that compassion (Hesed/Rahmah) is the supreme divine attribute."
 cross_references:
   - "philosophy.deontology"
-  - "philosophy.ethics"
+  - "philosophy.stoicism"
   - "political_ideology.classical_liberalism"
 ---
 

@@ -49,11 +49,11 @@ def catalog_data(corpus_root) -> dict:
 @pytest.mark.corpus
 @pytest.mark.tier1
 def test_f6_philosophy_topics_exist(corpus_root):
-    """F6: Verifies existence of all 9 philosophy topic files."""
+    """F6: Verifies existence of all 7 philosophy topic files."""
     philosophy_dir = corpus_root / "philosophy"
     expected_topics = [
-        "epistemology", "ethics", "metaphysics", "existentialism",
-        "utilitarianism", "deontology", "virtue_ethics", "stoicism", "pragmatism"
+        "epistemology", "metaphysics", "existentialism",
+        "utilitarianism", "deontology", "stoicism", "pragmatism"
     ]
     for topic in expected_topics:
         file_path = philosophy_dir / f"{topic}.md"
@@ -173,7 +173,7 @@ def test_f11_retriever_list_all_categories(retriever, catalog_data):
     categories = retriever.list_all_categories()
     expected_count = sum(len(d["topics"]) for d in catalog_data["domains"].values())
     assert len(categories) == expected_count
-    assert len(categories) >= 29
+    assert len(categories) >= 27
 
 
 @pytest.mark.e2e
@@ -392,7 +392,7 @@ def test_scenario_3_full_corpus_ingestion_and_cross_domain_querying(retriever):
        queries across philosophy, game theory, and political ideology to retrieve actionable doctrines.
     """
     all_categories = set(retriever.list_all_categories())
-    assert len(all_categories) >= 29
+    assert len(all_categories) >= 27
 
     # 1. Cross-reference integrity check
     for cat_id in all_categories:

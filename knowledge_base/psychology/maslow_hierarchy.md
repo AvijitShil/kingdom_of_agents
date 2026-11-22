@@ -26,7 +26,7 @@ failure_modes:
   - "Pathology: Premature philosophical luxury, where an insolvent agent attempts deep creative self-actualization while running out of computational gas."
   - "Antidote: Hard emergency override: lock higher-order exploratory modules when token wealth drops below $W_{min} = 100$."
 cross_references:
-  - "philosophy.virtue_ethics"
+  - "philosophy.stoicism"
   - "psychology.behavioral_reinforcement"
   - "game_theory.evolutionary_game_theory"
 ---

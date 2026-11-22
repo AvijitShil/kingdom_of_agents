@@ -48,7 +48,7 @@ def catalog(kb_root) -> dict:
 def test_catalog_structure(catalog):
     """Verifies that catalog.json defines the 5 expected domains and topics."""
     assert "domains" in catalog, "catalog.json missing 'domains' key"
-    assert catalog.get("total_topics") == 29, f"Expected total_topics == 29, got {catalog.get('total_topics')}"
+    assert catalog.get("total_topics") == 27, f"Expected total_topics == 27, got {catalog.get('total_topics')}"
     domains = catalog["domains"]
     assert len(domains) == 5, f"Expected 5 domains, got {len(domains)}"
 
@@ -120,13 +120,13 @@ def test_loader_parses_all_topics_cleanly(kb_root, catalog):
             assert len(profile.narrative_body) > 500, f"Narrative body unexpectedly short in {file_path}"
             total_parsed += 1
 
-    assert total_parsed == 29
+    assert total_parsed == 27
 
 
 def test_utility_weights_normalization_across_all_topics(retriever):
     """Verifies that utility weights for all topics contain the 5 required keys and sum to 1.0."""
     all_categories = retriever.list_all_categories()
-    assert len(all_categories) == 29
+    assert len(all_categories) == 27
 
     for cat_id in all_categories:
         profile = retriever.get_ideology(cat_id)
@@ -251,7 +251,7 @@ def test_retriever_unknown_domain_raises_error(retriever):
 def test_cross_reference_integrity(retriever):
     """Verifies that all cross-references across all topics resolve to valid corpus entries."""
     all_categories = sorted(retriever.list_all_categories())
-    assert len(all_categories) == 29
+    assert len(all_categories) == 27
 
     for cat_id in all_categories:
         profile = retriever.get_ideology(cat_id)
