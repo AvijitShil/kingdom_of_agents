@@ -1,0 +1,54 @@
+{
+  "scholar-01": {
+    "agent_id": "scholar-01",
+    "agent_name": "Prometheus",
+    "clan_id": "clan_alpha_technocrats",
+    "spouse_name": "Pyrrha",
+    "num_children": 2,
+    "water_cistern_reserve": 68.0,
+    "grain_ration_reserve": 52.0,
+    "living_standard_score": 1.0,
+    "status": "CIVILIAN",
+    "consecutive_starvation_ticks": 0,
+    "bandit_camp": null
+  },
+  "trader-01": {
+    "agent_id": "trader-01",
+    "agent_name": "Mercator",
+    "clan_id": "clan_beta_merchants",
+    "spouse_name": "Aurelia",
+    "num_children": 3,
+    "water_cistern_reserve": 45.0,
+    "grain_ration_reserve": 110.0,
+    "living_standard_score": 0.946,
+    "status": "CIVILIAN",
+    "consecutive_starvation_ticks": 0,
+    "bandit_camp": null
+  },
+  "justiciar-01": {
+    "agent_id": "justiciar-01",
+    "agent_name": "Solon",
+    "clan_id": "clan_gamma_jurists",
+    "spouse_name": "Themis",
+    "num_children": 1,
+    "water_cistern_reserve": 61.0,
+    "grain_ration_reserve": 64.0,
+    "living_standard_score": 1.0,
+    "status": "CIVILIAN",
+    "consecutive_starvation_ticks": 0,
+    "bandit_camp": null
+  },
+  "archivist-01": {
+    "agent_id": "archivist-01",
+    "agent_name": "Callimachus",
+    "clan_id": "clan_gamma_jurists",
+    "spouse_name": "Kalliope",
+    "num_children": 0,
+    "water_cistern_reserve": 49.0,
+    "grain_ration_reserve": 46.0,
+    "living_standard_score": 1.0,
+    "status": "CIVILIAN",
+    "consecutive_starvation_ticks": 0,
+    "bandit_camp": null
+  }
+}

@@ -31,6 +31,9 @@ class ObserverAgent:
         survival_summary: Optional[Dict[str, Any]] = None,
         headline: Optional[str] = None,
         date_str: Optional[str] = None,
+        kinship_summary: Optional[Dict[str, Any]] = None,
+        fission_summary: Optional[Dict[str, Any]] = None,
+        crisis_details: Optional[Any] = None,
     ) -> str:
         date_str = date_str or datetime.now().strftime("%Y-%m-%d")
         clan_actions = clan_actions or []
@@ -67,6 +70,14 @@ class ObserverAgent:
         )
         lines.append("")
 
+        if crisis_details:
+            lines.extend([
+                f"> **🔥 Active Existential Crisis**: *{getattr(crisis_details, 'title', str(crisis_details))}*",
+                f"> **Crisis Nature**: {getattr(crisis_details, 'description', '')}",
+                f"> **Town Square Dilemma**: *\"{getattr(crisis_details, 'public_dilemma', '')}\"*",
+                "",
+            ])
+
         # 2. Hardware & Runtime Diagnostics
         lines.extend([
             "---",
@@ -99,6 +110,44 @@ class ObserverAgent:
                 status = data.get("status", "STABLE")
                 lines.append(f"| **{title}** | {headcount} kin | {energy} EU | {rations} Rations | **{vitality}%** | `{status}` |")
             lines.append("")
+
+        # Kinship & Domestic Lineage Ledger
+        if kinship_summary:
+            lines.extend([
+                "---",
+                "",
+                "## 👨‍👩‍👧‍👦 Kinship Lineage & Domestic Living Standards",
+                "",
+                "| Agent Household | Clan Affiliation | Dependents | Water Cistern | Grain Reserve | Living Standard (L_i) | Civic Status |",
+                "|-----------------|:----------------:|:----------:|:-------------:|:-------------:|:---------------------:|:------------:|",
+            ])
+            for aid, hdata in kinship_summary.items():
+                name = hdata.get("agent_name", aid)
+                clan = hdata.get("clan_id", "Clan")
+                spouse = hdata.get("spouse_name")
+                kids = hdata.get("num_children", 0)
+                dep_str = f"Spouse + {kids} kids" if spouse else f"{kids} kids"
+                w_res = hdata.get("water_reserve", 0.0)
+                g_res = hdata.get("grain_reserve", 0.0)
+                l_score = hdata.get("living_standard", 1.0)
+                status = hdata.get("status", "CIVILIAN")
+                lines.append(f"| **{name}** | `{clan}` | {dep_str} | {w_res:.1f} L | {g_res:.1f} kg | **{l_score:.2f}** | `{status}` |")
+            lines.append("")
+
+        # Sovereign Dynastic Fission
+        if fission_summary and fission_summary.get("kingdoms"):
+            lines.extend([
+                "---",
+                "",
+                "## 👑 Sovereign Breakaway Kingdoms & Dynastic Fission",
+                "",
+            ])
+            for k in fission_summary["kingdoms"]:
+                lines.append(f"### 🚩 {k.get('kingdom_name')}")
+                lines.append(f"- **Origin Clan**: `{k.get('parent_clan')}` | **Population**: {k.get('population')} citizens")
+                lines.append(f"- **Preamble Charter**: *\"{k.get('charter_preamble')}\"*")
+                lines.append(f"- **Sovereign Reserves**: {k.get('water_reserve', 0)} L Water | {k.get('treasury_balance', 0)} Tokens")
+                lines.append("")
 
         # 4. Behind Closed Minds (Leaked Chains of Thought)
         if agora_channel and getattr(agora_channel, "messages", None):

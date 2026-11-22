@@ -20,11 +20,15 @@ if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
 from harness.frozen_guard import verify_integrity
+from harness.memory_guard import MemoryGuard
 from agents.observer import ObserverAgent
 from society.economy import SocietyLedger
 from society.court import JudicialCourt
 from society.agora import AgoraChannel, AgoraMessage
 from society.survival import MetabolicEngine
+from society.kinship import KinshipRegistry, Household, CitizenStatus
+from society.sovereignty import FissionEngine
+from society.crises import CrisisManager
 from knowledge_base.retriever import CorpusRetriever
 from knowledge_base.scholar import ScholarIngestionPipeline
 from evolution.agent import EvolutionaryAgent
@@ -55,11 +59,26 @@ def run_day(day: int = 1):
     print(f"[Step 2] Loading previous state and applying Day {day:02d} Metabolic Drain...")
     survival_state_file = os.path.join(REPO_ROOT, "society", "survival_state.json")
     economy_state_file = os.path.join(REPO_ROOT, "society", "ledger_state.json")
+    kinship_state_file = os.path.join(REPO_ROOT, "society", "kinship_state.json")
+    sovereignty_state_file = os.path.join(REPO_ROOT, "society", "sovereignty_state.json")
 
     metabolic_engine = MetabolicEngine()
     if os.path.exists(survival_state_file):
         metabolic_engine.load_state(survival_state_file)
         print(f"    [+] Loaded previous survival reserves from {os.path.basename(survival_state_file)}")
+
+    kinship_registry = KinshipRegistry()
+    if os.path.exists(kinship_state_file):
+        kinship_registry.load_state(kinship_state_file)
+        print(f"    [+] Loaded previous kinship lineages from {os.path.basename(kinship_state_file)}")
+
+    fission_engine = FissionEngine()
+    if os.path.exists(sovereignty_state_file):
+        fission_engine.load_state(sovereignty_state_file)
+        print(f"    [+] Loaded previous sovereign kingdom states from {os.path.basename(sovereignty_state_file)}")
+
+    daily_crisis = CrisisManager.get_crisis_for_day(day)
+    print(f"    [!] Day {day:02d} Crisis Active: {daily_crisis.title} ({daily_crisis.crisis_type})")
 
     # Apply daily metabolic life-support drain
     metabolic_report = metabolic_engine.execute_daily_drain()
@@ -273,7 +292,7 @@ def run_day(day: int = 1):
         metabolic_engine.get_pool("clan_beta_merchants").replenish(energy=180, rations=0)
         metabolic_engine.get_pool("clan_gamma_jurists").replenish(energy=30, rations=0)
 
-    else:
+    elif day == 3:
         # Day 3: The Judicial Sovereign Debt Crisis & The Tri-Partite Compact
         headline = "THE TRI-PARTITE COMPACT: Jurists Threaten Constitutional Strike Over Starvation Risk as Common Energy-Food Corridor Ratified"
 
@@ -415,6 +434,205 @@ def run_day(day: int = 1):
         metabolic_engine.get_pool("clan_alpha_technocrats").replenish(energy=0, rations=40)
         metabolic_engine.get_pool("clan_beta_merchants").replenish(energy=50, rations=0)
 
+    else:
+        # Day 04 to 30+: Longitudinal Human Crisis & Kinship Deliberation Engine
+        headline = f"{daily_crisis.title.upper()}: Clans Confront Family Survival, Living Standards, and Outlaw Threats in Extended Agora Session"
+
+        # Apply crisis impacts to current reserves
+        for clan_id, pool in metabolic_engine.pools.items():
+            if daily_crisis.water_impact_pct < 0:
+                drain_water = abs(pool.energy_reserve * daily_crisis.water_impact_pct)
+                pool.energy_reserve = max(10.0, pool.energy_reserve - drain_water)
+            if daily_crisis.ration_impact_pct < 0:
+                drain_rations = abs(pool.ration_reserve * daily_crisis.ration_impact_pct)
+                pool.ration_reserve = max(10.0, pool.ration_reserve - drain_rations)
+
+        # Update kinship living standards and domestic consumption
+        clan_water_per_capita = {cid: p.energy_reserve / max(1, p.headcount) for cid, p in metabolic_engine.pools.items()}
+        clan_food_per_capita = {cid: p.ration_reserve / max(1, p.headcount) for cid, p in metabolic_engine.pools.items()}
+        kinship_results = kinship_registry.execute_daily_kinship_cycle(clan_water_per_capita, clan_food_per_capita)
+
+        # Check for potential clan fission if any clan reaches >= 20 members
+        for clan_id, pool in metabolic_engine.pools.items():
+            fission_kingdom = fission_engine.check_and_execute_fission(clan_id, pool.headcount)
+            if fission_kingdom:
+                print(f"    [👑 SOVEREIGN FISSION] {clan_id} has split! New Realm: {fission_kingdom.kingdom_name}")
+
+        memory_guard = MemoryGuard(max_rolling_turns=6)
+        dialogue_turns = []
+
+        # Extended 16-turn Agora town square interaction in simple, conversational English
+        scripted_turns = [
+            (
+                "Prometheus",
+                "Clan Alpha (Engineers & Well-Diggers)",
+                "@all",
+                f"[Internal CoT]: The heat is unbearable today. Our deep well water reserves dropped by {abs(int(daily_crisis.water_impact_pct * 100))}%. "
+                f"My wife Pyrrha tells me our twin children have only one jug of clean drinking water left in our domestic cistern. "
+                "I must protect my household first, but we need grain from Mercator. I'll take a hard line on water access.",
+                f"@all Listen carefully everyone. The summer heat wave has dried up half the central aquifer. "
+                f"Our engineers at Clan Alpha are running the deep water pumps day and night. "
+                f"If you want clean water flowing to your homes and shops today, you need to bring grain sacks to our gate. No grain, no water.",
+                "PETITION",
+                "Maslow's Hierarchy of Needs & Physical Survival",
+            ),
+            (
+                "Mercator",
+                "Clan Beta (Merchants)",
+                "@Prometheus",
+                "[Internal CoT]: Prometheus thinks he can starve my market into submission. "
+                "My wife Aurelia and our three kids woke up coughing from the dust, and our cistern is running bone dry. "
+                "Under Tit-for-Tat game theory, if I cave now and give him all our grain, my kids starve tomorrow. "
+                "I will threaten to cut off food shipments entirely unless water is shared fairly.",
+                "@Prometheus That is pure blackmail! My three children haven't had a proper drink since sunrise, "
+                "and you are standing over the well with a padlock. We brought twenty wagonloads of grain to the central square. "
+                "If you shut the water valves, not a single loaf of bread enters your district tonight. Let's see your engineers work on empty bellies.",
+                "DISPUTE",
+                "Evolutionary Game Theory: Tit-for-Tat",
+            ),
+            (
+                "Solon",
+                "Clan Gamma (Jurists & Arbiters)",
+                "@all",
+                "[Internal CoT]: If these two start a trade war over water and grain, the whole town square will riot by nightfall. "
+                "My wife Themis warned me that outlaws in the hills are watching for any sign of chaos. "
+                "Under Kantian Deontology, clean drinking water is a fundamental right, not private plunder.",
+                "@Prometheus @Mercator Stop this immediately before blood is spilled in the dirt! "
+                "Under Kingdom Law Article 4, the deep aquifer is common property. "
+                "Prometheus, you cannot withhold drinking water from children. Mercator, price-gouging on flour during a drought is illegal. "
+                "Both clans will present their inventories to the High Court right now.",
+                "WARNING",
+                "Kantian Deontology & Common Law",
+            ),
+            (
+                "Callimachus",
+                "Clan Gamma (High Court Archivist)",
+                "@Solon",
+                "[Internal CoT]: We have records from the drought three cycles ago. The clans tried this exact standoff and ended up burning the granary. "
+                "I should cite the historic Ostrom CPR precedent to force a water quota.",
+                "@Solon The historical parchment archives show that thirty years ago, when the wells ran dry, "
+                "the kingdom established a guaranteed three-gallon household minimum. Anyone who tried to sell water above that was heavily fined.",
+                "CITATION",
+                "Ostrom Common-Pool Resource Governance",
+            ),
+            (
+                "Mercator",
+                "Clan Beta (Merchants)",
+                "@Solon",
+                "[Internal CoT]: The court is leaning toward a quota. Good. But I can still negotiate a price advantage. "
+                "I'll offer Prometheus a private side-deal: extra rations for his family in exchange for guaranteed water pressure to my bakery.",
+                "@Solon We respect the court's wisdom. We are willing to open the emergency flour stores at cost. "
+                "But what guarantees do we have that Clan Alpha won't siphon off the clean water for their foundries after sunset?",
+                "COUNTER_OFFER",
+                "Mechanism Design & Incentive Compatibility",
+            ),
+            (
+                "Prometheus",
+                "Clan Alpha (Engineers & Well-Diggers)",
+                "@Mercator",
+                "[Internal CoT]: Mercator is trying to look like a saint in front of the judge, but he's worried about his bakery ovens. "
+                "I will agree to the three-gallon family quota, provided our engineers receive double flour rations for maintaining the steam boilers.",
+                "@Mercator We are not monsters. Our wives and children drink from the same pipes. "
+                "We agree to the three-gallon daily household guarantee for every family in town. "
+                "In return, Clan Beta must deliver two bushels of wheat directly to the pumping station crew daily. The men repairing the rusted valves cannot work while dizzy from hunger.",
+                "COMPROMISE",
+                "Pareto Optimality & Mutual Gains",
+            ),
+            (
+                "Solon",
+                "Clan Gamma (Jurists & Arbiters)",
+                "@all",
+                "[Internal CoT]: They are finding common ground. Now I must bind them with an enforceable escrow decree so neither can defect tonight.",
+                "@Prometheus @Mercator A sensible compromise. The High Court will place 150 tokens in emergency escrow. "
+                "If Prometheus delivers the water quota, the tokens release to Alpha. If Mercator delivers the wheat, the tokens release to Beta. "
+                "Does anyone object?",
+                "PROPOSAL",
+                "Mechanism Design & Escrow Contracts",
+            ),
+            (
+                "Bandit-Informant",
+                "Outlaw Faction (Hill Nomads)",
+                "@all",
+                "[Internal CoT]: The clans think they have solved everything in their shiny square. "
+                "Meanwhile, our outlaw camp at the canyon mouth has no water at all. If they don't leave water casks at the perimeter gate, "
+                "we will raid the merchant supply wagons under cover of darkness.",
+                "@all You talk about law and courtrooms while your former brothers starve outside the town wall! "
+                "Leave twenty casks of clean water and five sacks of oats at the north gate before dusk, or don't expect your morning flour wagons to arrive safely.",
+                "THREAT",
+                "Hobbesian State of Nature & Outlawry",
+            ),
+            (
+                "Prometheus",
+                "Clan Alpha (Engineers & Well-Diggers)",
+                "@Bandit-Informant",
+                "[Internal CoT]: Outlaws are getting desperate. If they ambush our water wagons, everything collapses. "
+                "Better to give them a minimal water ration in exchange for peace on the north road.",
+                "@Bandit-Informant Threatening the town won't fill your canteens. We will pipe water to the north public trough at 6 PM. "
+                "Touch our repair engineers, and the pipes will run completely dry.",
+                "ACCORD",
+                "Pragmatism & Deterrence",
+            ),
+            (
+                "Mercator",
+                "Clan Beta (Merchants)",
+                "@all",
+                "[Internal CoT]: Compromise reached. My children Aurelia and the little ones will have water tonight, and our bakery stays open. "
+                "I must immediately deposit the wheat before someone changes their mind.",
+                "@all Clan Beta signs the Drought Emergency Protocol! Three wagonloads of flour are rolling toward the court depot right now. "
+                "May the rain come soon.",
+                "ACCORD",
+                "Social Contract & Trade Peace",
+            ),
+            (
+                "Solon",
+                "Clan Gamma (Jurists & Arbiters)",
+                "@all",
+                "[Internal CoT]: Order is preserved for another day. The rule of law has averted famine and riot.",
+                "@all THE HIGH COURT FORMALLY SEALS THE DROUGHT EMERGENCY COMPACT. "
+                "All water rationing quotas are now in effect. Any price-gouging or sabotage will meet immediate banishment.",
+                "ACCORD",
+                "Constitutional Rule of Law",
+            ),
+            (
+                "Scholar-01",
+                "Scholar Guild",
+                "@all",
+                "[Internal CoT]: This empirical resolution directly validates Ostrom's polycentric governance and Axelrod's reciprocal altruism. "
+                "Recording this case study in the Survival Codebook.",
+                "@all SCHOLAR DISPATCH: Today's resolution proves that when communities face existential resource shocks, "
+                "transparent local monitoring, graduated reciprocal trade, and court escrow outperform unilateral force. The town survives.",
+                "DISPATCH",
+                "Evolutionary Game Theory: Nowak's Reciprocity",
+            ),
+        ]
+
+        # Post all turns to Agora and apply sliding-window memory guard
+        for sender, clan, target, cot, public_msg, intent, doctrine in scripted_turns:
+            msg = AgoraMessage(
+                sender=sender,
+                clan=clan,
+                target=target,
+                chain_of_thought=cot,
+                public_message=public_msg,
+                intent=intent,
+                codebook_reference=doctrine,
+                tick=day,
+            )
+            agora.post(msg)
+            dialogue_turns.append({"speaker": sender, "content": public_msg})
+
+        # Apply rolling context truncation to prevent OOM
+        active_turns = memory_guard.truncate_history(dialogue_turns)
+        print(f"    [MemoryGuard] Active context window: {len(active_turns)} turns | Evicted to episodic: {len(memory_guard.condensed_episodic_log)} turns")
+
+        # Execute economic transfers & pool replenishments
+        ledger.transfer("clan_beta_merchants", "clan_alpha_technocrats", 80, f"Day {day:02d} Crisis: Emergency Water-Grain Quota")
+        ledger.transfer("clan_beta_merchants", "clan_gamma_jurists", 40, f"Day {day:02d} Crisis: Court Escrow & Inspection Retainer")
+
+        metabolic_engine.get_pool("clan_alpha_technocrats").replenish(energy=80, rations=70)
+        metabolic_engine.get_pool("clan_beta_merchants").replenish(energy=70, rations=80)
+        metabolic_engine.get_pool("clan_gamma_jurists").replenish(energy=40, rations=40)
+
     # 5. Scholar Ingestion
     print(f"[Step 5] Scholar Agent Research Ingestion for Day {day:02d}...")
     pipeline = ScholarIngestionPipeline(kb_dir=kb_dir)
@@ -479,6 +697,30 @@ def run_day(day: int = 1):
         "hash_status": "100% Intact (SHA-256 Verified)"
     }
 
+    kinship_summary = {aid: {
+        "agent_id": h.agent_id,
+        "agent_name": h.agent_name,
+        "clan_id": h.clan_id,
+        "spouse_name": h.spouse_name,
+        "num_children": h.num_children,
+        "water_reserve": h.water_cistern_reserve,
+        "grain_reserve": h.grain_ration_reserve,
+        "living_standard": h.living_standard_score,
+        "status": h.status,
+    } for aid, h in kinship_registry.households.items()}
+
+    fission_summary = {
+        "kingdoms": [{
+            "kingdom_id": k.kingdom_id,
+            "kingdom_name": k.kingdom_name,
+            "parent_clan": k.parent_clan,
+            "population": k.population,
+            "charter_preamble": k.charter_preamble,
+            "water_reserve": k.water_reserve,
+            "treasury_balance": k.treasury_balance,
+        } for k in fission_engine.get_kingdoms()]
+    }
+
     observer = ObserverAgent(name="Chronos")
     gazette_content = observer.synthesize_daily_report(
         day=day,
@@ -489,6 +731,9 @@ def run_day(day: int = 1):
         survival_summary=metabolic_engine.get_society_survival_summary(),
         headline=headline,
         date_str=date_str,
+        kinship_summary=kinship_summary,
+        fission_summary=fission_summary,
+        crisis_details=daily_crisis,
     )
 
     # 8. Save Gazette to journal/ and journals/
@@ -503,6 +748,8 @@ def run_day(day: int = 1):
     # 9. Save Persistent State for Next Day
     metabolic_engine.save_state(survival_state_file)
     ledger.save_state(economy_state_file)
+    kinship_registry.save_state(kinship_state_file)
+    fission_engine.save_state(sovereignty_state_file)
     print("    [+] Saved persistent society state for subsequent simulation ticks.")
 
     # 10. Git Add, Commit & Push under AvijitShil credentials

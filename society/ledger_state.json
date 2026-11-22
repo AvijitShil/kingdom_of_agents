@@ -1,9 +1,9 @@
 {
   "total_supply": 10000,
   "balances": {
-    "clan_alpha_technocrats": 3315,
-    "clan_beta_merchants": 2485,
-    "clan_gamma_jurists": 3200
+    "clan_alpha_technocrats": 3395,
+    "clan_beta_merchants": 2365,
+    "clan_gamma_jurists": 3240
   },
   "transactions": [
     {
@@ -68,6 +68,20 @@
       "to": "clan_alpha_technocrats",
       "amount": 75,
       "memo": "Day 03 Compact: Smart-Escrow Automation Fee"
+    },
+    {
+      "timestamp": 1795380449,
+      "from": "clan_beta_merchants",
+      "to": "clan_alpha_technocrats",
+      "amount": 80,
+      "memo": "Day 04 Crisis: Emergency Water-Grain Quota"
+    },
+    {
+      "timestamp": 1795380449,
+      "from": "clan_beta_merchants",
+      "to": "clan_gamma_jurists",
+      "amount": 40,
+      "memo": "Day 04 Crisis: Court Escrow & Inspection Retainer"
     }
   ]
 }
