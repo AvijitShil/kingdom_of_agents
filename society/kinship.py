@@ -1,15 +1,20 @@
 """
 EON Kinship, Domestic Lineage, and Outlawry Engine
-Models domestic households (H_i), named agents (e.g., Prometheus), spouses,
-dependent children, water cistern reserves, grain rations, living standard metrics,
-and outlaw bandit defection when clans fail to provide basic sustenance.
+EON 2.0: Adds Greek naming pool, reproduction controller, and parental education.
+Models domestic households, named agents, spouses, dependent children, water/grain
+reserves, living standard metrics, and outlaw bandit defection.
 """
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional, Any, Set
 import json
 import os
+import random
 
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Legacy household / kinship API (kept for test_kinship.py backward compatibility)
+# ──────────────────────────────────────────────────────────────────────────────
 
 class CitizenStatus:
     CIVILIAN = "CIVILIAN"
@@ -44,11 +49,9 @@ class Household:
         """
         L_i = beta1 * Water_Security + beta2 * Food_Abundance + beta3 * Child_Health
         """
-        # Domestic reserves + clan per-capita provisioning
         water_ratio = min(1.0, (self.water_cistern_reserve + clan_water_per_capita) / (self.total_dependents * 15.0))
         food_ratio = min(1.0, (self.grain_ration_reserve + clan_food_per_capita) / (self.total_dependents * 10.0))
-        
-        # Child penalty if children are hungry
+
         child_health = 1.0
         if self.num_children > 0 and (water_ratio < 0.4 or food_ratio < 0.4):
             child_health = max(0.1, (water_ratio + food_ratio) / 2.0)
@@ -161,7 +164,11 @@ class KinshipRegistry:
     def get_outlaws(self) -> List[Household]:
         return [h for h in self.households.values() if h.status == CitizenStatus.OUTLAW]
 
-    def execute_daily_kinship_cycle(self, clan_water_per_capita: Dict[str, float], clan_food_per_capita: Dict[str, float]) -> Dict[str, Any]:
+    def execute_daily_kinship_cycle(
+        self,
+        clan_water_per_capita: Dict[str, float],
+        clan_food_per_capita: Dict[str, float],
+    ) -> Dict[str, Any]:
         """Update living standards and consume domestic food/water for all households."""
         results = {}
         for aid, h in self.households.items():
@@ -199,3 +206,160 @@ class KinshipRegistry:
         for aid, d in data.items():
             self.households[aid] = Household(**d)
         return True
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# EON 2.0: Greek naming, reproduction, and parental education
+# ──────────────────────────────────────────────────────────────────────────────
+
+GREEK_NAME_POOL = [
+    # Female
+    "Alkmene", "Andromeda", "Antigone", "Ariadne", "Cassandra", "Clio", "Danae",
+    "Electra", "Eurydice", "Hecate", "Helen", "Hera", "Io", "Iris", "Medea",
+    "Nausikaa", "Niobe", "Pasiphae", "Penelope", "Persephone", "Phaedra",
+    "Semele", "Thetis", "Zoe",
+    # Male
+    "Achilles", "Adonis", "Ajax", "Aristotle", "Bellerophon", "Deucalion",
+    "Diomedes", "Euclid", "Hector", "Hippocrates", "Icarus", "Jason", "Leander",
+    "Leonidas", "Midas", "Narcissus", "Odysseus", "Oedipus", "Patroclus",
+    "Pericles", "Perseus", "Plato", "Poseidon", "Pyrrhus", "Socrates",
+    "Tantalus", "Theseus", "Xenophon", "Zephyr", "Zenobia",
+]
+
+# Roman numeral suffixes for pool exhaustion fallback
+_ROMAN = ["", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
+          "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"]
+
+
+class GreekNamingRegistry:
+    """Generates unique Greek names for newborn agents."""
+
+    def __init__(self):
+        self.used_names: Set[str] = set()
+
+    def generate_child_name(self, parent1: str, parent2: str) -> str:
+        """
+        Return a unique name from GREEK_NAME_POOL not already used.
+        If pool is exhausted, generates 'Name_II', 'Name_III' variants.
+        """
+        # Try pool names first (shuffle for variety)
+        pool = [n for n in GREEK_NAME_POOL if n not in self.used_names]
+        if pool:
+            # Prefer names unrelated to parents for variety
+            name = random.choice(pool)
+            self.used_names.add(name)
+            return name
+
+        # Pool exhausted — generate suffixed variants
+        for base in GREEK_NAME_POOL:
+            for suffix in _ROMAN[2:]:  # II, III, ...
+                candidate = f"{base}_{suffix}"
+                if candidate not in self.used_names:
+                    self.used_names.add(candidate)
+                    return candidate
+
+        # Absolute fallback (practically unreachable)
+        import uuid
+        fallback = f"Agent_{uuid.uuid4().hex[:6]}"
+        self.used_names.add(fallback)
+        return fallback
+
+
+class ReproductionController:
+    """Controls daily birth rates and reproduction eligibility."""
+
+    MAX_DAILY_BIRTHS = 10
+    MIN_REPRODUCTION_BALANCE = 28  # 2x daily upkeep
+
+    def __init__(self):
+        self.global_daily_births: int = 0
+        self._births_this_day: List[dict] = []
+
+    def can_reproduce(self, parent1_balance: int, parent2_balance: int) -> bool:
+        """
+        Returns True iff:
+        - Neither parent's balance is below MIN_REPRODUCTION_BALANCE
+        - Daily birth cap not yet reached
+        """
+        if self.global_daily_births >= self.MAX_DAILY_BIRTHS:
+            return False
+        return (
+            parent1_balance >= self.MIN_REPRODUCTION_BALANCE
+            and parent2_balance >= self.MIN_REPRODUCTION_BALANCE
+        )
+
+    def register_birth(
+        self,
+        child_name: str,
+        parent1: str,
+        parent2: str,
+        day: int,
+    ) -> dict:
+        """
+        Register a new birth event.
+        Returns birth record dict.
+        """
+        self.global_daily_births += 1
+        record = {
+            "child": child_name,
+            "parent1": parent1,
+            "parent2": parent2,
+            "day": day,
+            "birth_number_today": self.global_daily_births,
+        }
+        self._births_this_day.append(record)
+        return record
+
+    def reset_daily_counter(self) -> None:
+        """Call at the start of each new simulated day."""
+        self.global_daily_births = 0
+        self._births_this_day = []
+
+
+# Mutation tokens — simple string transforms representing cultural drift
+_MUTATION_PREFIXES = ["Neo-", "Proto-", "Meta-", "Anti-", "Hyper-"]
+_MUTATION_SUFFIXES = ["-ism", "-craft", "-lore", "-way", "-art"]
+
+
+class ParentalEducation:
+    """Models knowledge transfer from parent to child with possible trait mutation."""
+
+    def transfer_knowledge(
+        self,
+        parent: str,
+        child: str,
+        parent_cultural_traits: list,
+        day: int,
+    ) -> dict:
+        """
+        Transfer cultural traits from parent to child.
+        Each trait has a 10% chance of mutating (string modification).
+
+        Returns:
+            {
+                "child": name,
+                "inherited_traits": list,
+                "day": day,
+            }
+        """
+        inherited_traits = []
+        for trait in parent_cultural_traits:
+            if random.random() < 0.10:
+                # Mutate the trait
+                mutation_type = random.choice(["prefix", "suffix", "replace"])
+                if mutation_type == "prefix":
+                    mutated = random.choice(_MUTATION_PREFIXES) + str(trait)
+                elif mutation_type == "suffix":
+                    mutated = str(trait) + random.choice(_MUTATION_SUFFIXES)
+                else:
+                    # Replace entire trait with a random adjacent concept
+                    mutated = f"{trait}[evolved]"
+                inherited_traits.append(mutated)
+            else:
+                inherited_traits.append(trait)
+
+        return {
+            "child": child,
+            "inherited_traits": inherited_traits,
+            "day": day,
+        }
