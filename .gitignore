@@ -7,3 +7,9 @@ __pycache__/
 .agents/
 .coverage
 htmlcov/
+*.tex
+*.bib
+paper_drafts/
+docs/*.tex
+docs/*.bib
+docs/*_Paper.md
