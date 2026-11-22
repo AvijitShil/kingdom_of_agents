@@ -366,11 +366,13 @@ class SurvivalEngine:
             data = json.load(f)
         self.profiles = {}
         for name, d in data.items():
+            if not isinstance(d, dict) or "name" not in d or "state" not in d:
+                continue
             p = AgentSurvivalProfile(
                 name=d["name"],
                 state=SurvivalState(d["state"]),
-                consecutive_critical_days=d["consecutive_critical_days"],
-                last_upkeep_day=d["last_upkeep_day"],
+                consecutive_critical_days=d.get("consecutive_critical_days", 0),
+                last_upkeep_day=d.get("last_upkeep_day", -1),
             )
             self.profiles[name] = p
         return True

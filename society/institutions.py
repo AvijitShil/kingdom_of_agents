@@ -279,3 +279,7 @@ class InstitutionRegistry:
                 )
             self._institutions[iid] = inst
         return True
+
+
+default_registry = InstitutionRegistry()
+

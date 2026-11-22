@@ -3,7 +3,8 @@
   "balances": {
     "clan_alpha_technocrats": 3475,
     "clan_beta_merchants": 2245,
-    "clan_gamma_jurists": 3280
+    "clan_gamma_jurists": 3280,
+    "survival_pool": 0
   },
   "transactions": [
     {

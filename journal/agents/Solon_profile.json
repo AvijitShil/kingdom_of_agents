@@ -3,13 +3,13 @@
   "birth_day": 1,
   "parents": [],
   "children": [],
-  "spouse": "Themis",
-  "clan": "clan_gamma_jurists",
+  "spouse": null,
+  "clan": null,
   "kingdom": null,
   "wealth_history": [],
-  "survival_state": "CIVILIAN",
+  "survival_state": "CRITICAL",
   "cultural_traits": [],
   "businesses": [],
   "notable_events": [],
-  "last_updated_day": 5
+  "last_updated_day": 6
 }

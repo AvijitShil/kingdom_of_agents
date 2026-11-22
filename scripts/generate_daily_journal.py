@@ -736,14 +736,14 @@ def run_day(day: int = 1):
         crisis_details=daily_crisis,
     )
 
-    # 8. Save Gazette to journal/, journals/, and journal/daily/
-    for folder_name in ["journal", "journals", os.path.join("journal", "daily")]:
+    # 8. Save Gazette to journal/, journals/, journal/daily/, daily gazette/, and daily_gazette/
+    for folder_name in ["journal", "journals", os.path.join("journal", "daily"), "daily gazette", "daily_gazette"]:
         target_dir = os.path.join(REPO_ROOT, folder_name)
         os.makedirs(target_dir, exist_ok=True)
         target_path = os.path.join(target_dir, f"{date_str}.md")
         with open(target_path, "w", encoding="utf-8") as f:
             f.write(gazette_content)
-    print(f"    [+] The Kingdom Gazette published to journal/{date_str}.md and journal/daily/{date_str}.md")
+    print(f"    [+] The Kingdom Gazette published to journal/{date_str}.md and daily gazette/{date_str}.md")
 
     # Chronos Observatory Event & Profile Logging
     try:

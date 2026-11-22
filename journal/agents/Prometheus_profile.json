@@ -3,13 +3,13 @@
   "birth_day": 1,
   "parents": [],
   "children": [],
-  "spouse": "Pyrrha",
-  "clan": "clan_alpha_technocrats",
+  "spouse": null,
+  "clan": null,
   "kingdom": null,
   "wealth_history": [],
-  "survival_state": "CIVILIAN",
+  "survival_state": "CRITICAL",
   "cultural_traits": [],
   "businesses": [],
   "notable_events": [],
-  "last_updated_day": 5
+  "last_updated_day": 6
 }

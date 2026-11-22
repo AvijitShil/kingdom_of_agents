@@ -1,0 +1,26 @@
+{
+  "trait_9eacda42": {
+    "trait_id": "trait_9eacda42",
+    "name": "Cistern Desilting Guild (Day 6)",
+    "category": "social_institution",
+    "creator_agent": "Lysander",
+    "origin_day": 6,
+    "description": "Cooperative labor sharing for cleaning civic water channels.",
+    "transmission_type": "success",
+    "adoption_history": [
+      {
+        "agent": "Lysander",
+        "day": 6,
+        "source_agent": "",
+        "timestamp": 1795386498
+      }
+    ],
+    "status": "emerging",
+    "economic_effects": {
+      "upkeep_reduction": 0.1
+    },
+    "social_effects": {},
+    "parent_trait_id": null,
+    "transformed_traits": []
+  }
+}
