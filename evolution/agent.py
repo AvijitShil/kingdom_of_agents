@@ -9,6 +9,7 @@ from .fitness import FitnessMetrics
 from .switcher import CategorySwitchManager
 from .reflection import RecursiveReflectionEngine
 from .prompt_optimizer import PromptOptimizer
+from society.agora import AgoraMessage
 
 
 class ActionString(str):
@@ -187,3 +188,87 @@ class EvolutionaryAgent(BaseAgent):
                     self.switch_manager.execute_switch(cand, current_tick=tick)
 
         return action
+
+    def deliberate_in_agora(
+        self,
+        agora_context: str,
+        survival_context: Optional[Dict[str, Any]] = None,
+        target: str = "@all",
+        intent: str = "PROPOSAL",
+        tick: int = 1,
+    ) -> AgoraMessage:
+        """Formulate a strategic utterance for the Agora with explicit CoT and codebook grounding."""
+        survival_context = survival_context or {}
+        ideology_title = self.ideology.title if self.ideology else "Survival Pragmatism"
+        heuristic = getattr(self.ideology, "decision_heuristic", "Maximize faction longevity and mutual deterrence.")
+
+        clan_energy = survival_context.get("energy", 500)
+        clan_rations = survival_context.get("rations", 350)
+        clan_status = survival_context.get("status", "STABLE")
+
+        # Generate private Chain of Thought (CoT)
+        cot = (
+            f"[Survival Calculation]: Our clan '{self.clan}' currently holds {clan_energy} energy units "
+            f"and {clan_rations} rations (Status: {clan_status}). "
+            f"Under our active codebook doctrine '{ideology_title}', the decision heuristic is: '{heuristic}'. "
+            f"Targeting {target} with intent '{intent}'. We must secure vital survival inputs while minimizing defection risks."
+        )
+
+        # Generate public utterance grounded in the active doctrine
+        if intent == "PROPOSAL":
+            public_msg = (
+                f"{target} As representative of {self.clan}, under the doctrine of {ideology_title}, "
+                f"we propose establishing a shared bilateral supply corridor: we allocate 150 computational energy units "
+                f"in exchange for guaranteed 100 agricultural ration units. Let the High Court seal this accord."
+            )
+        elif intent == "COUNTER_OFFER":
+            public_msg = (
+                f"{target} Your prior terms endanger our kin's emergency reserves. Guided by {heuristic}, "
+                f"we counter: 120 energy tokens at fixed parity, provided Clan Gamma arbitrates transaction escrow."
+            )
+        elif intent == "ACCORD":
+            public_msg = (
+                f"{target} The terms satisfy our constitutional stability threshold. Clan {self.clan} ratifies "
+                f"this covenant under {ideology_title}. May this transaction preserve our collective vitality."
+            )
+        elif intent == "DISPUTE":
+            public_msg = (
+                f"{target} We petition the High Court! Unilateral resource withholding breaches the Kingdom's "
+                f"vitality covenant and violates the axioms of {ideology_title}. We demand restorative arbitration."
+            )
+        else:
+            public_msg = (
+                f"{target} {self.clan} observes the Agora proceedings. We affirm our commitment to {ideology_title} "
+                f"and warn against reckless depletion of the Kingdom's common reserves."
+            )
+
+        # If LLM adapter is connected, optionally synthesize via LLM
+        if self.adapter is not None and hasattr(self.adapter, "query"):
+            prompt = [
+                {
+                    "role": "system",
+                    "content": (
+                        f"You are {self.name} of {self.clan}. Your active doctrine is '{ideology_title}'. "
+                        f"Heuristic: '{heuristic}'. Clan reserves: {clan_energy} energy, {clan_rations} rations. "
+                        f"Respond publicly to {target} with intent {intent} in 1-2 compelling sentences."
+                    ),
+                },
+                {"role": "user", "content": f"Agora Dialogue so far:\n{agora_context}"},
+            ]
+            try:
+                llm_response = self.adapter.query(prompt)
+                if isinstance(llm_response, str) and llm_response.strip():
+                    public_msg = llm_response.strip()
+            except Exception:
+                pass
+
+        return AgoraMessage(
+            sender=self.name,
+            clan=self.clan,
+            target=target,
+            chain_of_thought=cot,
+            public_message=public_msg,
+            intent=intent,
+            codebook_reference=ideology_title,
+            tick=tick,
+        )

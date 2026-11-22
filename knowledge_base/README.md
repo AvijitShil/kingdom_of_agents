@@ -17,16 +17,14 @@ Autonomous agents in complex multi-agent societies require coherent normative gu
 
 ## 2. Taxonomy of Domains and Topics
 
-The research corpus encompasses **5 foundational domains** and **29 standardized topics**:
+The research corpus encompasses **5 foundational domains** and **27 standardized topics**:
 
 ### Domain 1: Philosophy & Normative Systems (`philosophy/`)
 - `epistemology.md`: Epistemic validation, empiricism vs. rationalism, Bayesian updating, falsificationism.
-- `ethics.md`: Meta-ethics, moral realism, constructivism, and normative principles for machine intelligence.
 - `metaphysics.md`: Ontology, determinism vs. free will, agent emergence, and identity through state transitions.
 - `existentialism.md`: Radical agency, authentic choice, freedom, and combating existential despair or bad faith.
 - `utilitarianism.md`: Act vs. rule utilitarianism, expected aggregate utility, negative utilitarianism, and utility monster mitigation.
 - `deontology.md`: Kantian categorical imperative, duty ethics, universalizability, and deontic side-constraints.
-- `virtue_ethics.md`: Aristotelian phronesis (practical wisdom), eudaimonia, character cultivation, and the golden mean.
 - `stoicism.md`: Epictetus and Aurelius, dichotomy of control, Amor Fati, cognitive resilience, and apatheia.
 - `pragmatism.md`: Peirce, James, Dewey, instrumental truth, fallibilism, and iterative inquiry loops.
 
