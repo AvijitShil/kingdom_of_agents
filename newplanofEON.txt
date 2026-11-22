@@ -1,0 +1,1413 @@
+EON 2.0 — Evolutionary Civilizational Framework
+PROPOSED RESEARCH AND ARCHITECTURE SPECIFICATION · VERSION 2.0
+
+Before the full draft, there are three design decisions I want to make explicit.
+
+1. Tokens are survival currency, not merely money. Every agent needs tokens to pay for its simulated existence. Agents can earn, trade, borrow, save, lose, steal or accumulate them through whatever activities the simulation permits. Wealth therefore becomes a matter of survival, influence and social power.
+
+2. Reproduction is an agent decision, not a researcher-imposed family-size rule. There is no fixed family-size limit. The baseline simulation will support a maximum creation throughput of 10 new agents per simulated day across the civilization. Parents decide whether to create them and must consider their future upkeep. A separate experiment can remove the throughput limit.
+
+3. Survival instincts operate exclusively inside EON. Agents can defend their simulated lives, families, wealth and kingdoms. They cannot acquire real-world resources, escape the simulation, create uncontrolled external processes or resist the researcher's termination controls.
+
+There is also an important scientific distinction: because your foundation model remains frozen, this is primarily cultural, behavioural and institutional evolution, rather than genetic evolution of the neural model itself. The new generation can acquire different memories, skills, beliefs and strategies without changing the underlying model weights.
+EON 2.0: A Framework for Cultural Evolution, Survival Economics, and Emergent Artificial Civilizations
+Project: EON — Evolving Open-ended Network
+Research direction: Cultural Evolution and Artificial Life
+Foundation: Frozen Small Language Model with an adaptive external cognitive and social environment
+Proposed environment: kingdom_of_agents
+Initial currency: 10,000 TOKENS
+Baseline population: 12 founding agents
+New-agent creation capacity: Up to 10 agents per simulated day
+Naming convention: Greek names for all agents; clans and kingdoms name themselves.
+
+1. Research Motivation
+EON aims to investigate whether autonomous language-model agents can develop increasingly complex societies through survival pressure, social interaction, economic competition, reproduction, knowledge transmission, and institutional formation.
+
+Unlike conventional multi-agent simulations that explicitly prescribe agent personalities, political ideologies, social roles, and expected behaviours, EON aims to provide a relatively open environment in which these properties can emerge through interactions between agents.
+
+Agents are not instructed to create casinos, criminal organizations, political parties, religious groups, monopolies, or kingdoms. Instead, they receive the ability to communicate, trade, form relationships, create businesses, reproduce, establish institutions, negotiate agreements, and compete for limited resources.
+
+The research investigates whether these underlying capabilities produce recognizable social structures and behavioural patterns over multiple generations.
+
+The central principle is:
+
+Do not prescribe what civilization should become. Establish the conditions under which civilization can develop.
+1.1 Primary Research Question
+Can a population of autonomous agents using an immutable foundation model develop cumulative cultural evolution, intergenerational behavioural transmission, economic institutions, cooperative structures, antisocial organizations, and independent political systems through interactions under survival-driven resource constraints?
+1.2 Secondary Research Questions
+1. How do agents develop habits, preferences, beliefs, and social behaviours?
+2. How are behaviours transmitted between parents, children, peers, and influential agents?
+3. Can antisocial behaviours emerge without explicitly programming them?
+4. How do gambling businesses, monopolies, corruption, underground markets, and exploitative institutions emerge?
+5. Does competition for survival produce cooperation, selfishness, or both?
+6. How do families evolve into larger clans and political kingdoms?
+7. How do agents develop different cultural identities?
+8. How does wealth concentration affect reproduction, education, and political influence?
+9. Can a civilization independently develop systems of law, taxation, education, trade, and military organization?
+10. Do new generations preserve, reject, or transform the practices of their predecessors?
+2. Foundational Evolutionary Theory
+EON should incorporate cultural evolutionary theory rather than rely exclusively on predefined ideological doctrines.
+
+Cultural evolution describes the development of socially transmitted information, including behaviours, beliefs, knowledge, skills, technologies, and practices.
+
+EON adapts this idea into an artificial social environment.
+
+The proposed evolutionary framework contains six mechanisms.
+2.1 Variation: Creation of New Behaviours
+Agents must be capable of developing new behaviours, practices, businesses, beliefs, strategies, and institutions.
+
+An agent should not be restricted to the behaviours explicitly listed in its initial knowledge base.
+
+Examples include:
+- Developing a new form of business.
+- Creating a wagering activity.
+- Introducing a new method of trading.
+- Developing a family tradition.
+- Establishing a new social gathering.
+- Introducing a new political arrangement.
+- Creating an organization to protect economic interests.
+- Developing a new belief concerning wealth, loyalty, or survival.
+New practices should emerge from individual experimentation and interactions.
+
+Every newly observed cultural practice should receive an identifiable record containing its creator, origin, description, adoption history, and subsequent transformations.
+2.2 Transmission: Learning From Others
+Agents should acquire knowledge through multiple transmission pathways.
+
+Vertical transmission: Parents educate their children and transfer family traditions.
+
+Horizontal transmission: Agents learn from friends, business partners, competitors, and peers.
+
+Oblique transmission: Younger agents learn from older agents, experienced individuals, teachers, and influential community members.
+
+Prestige-based transmission: Agents may imitate individuals who possess high status or influence.
+
+Success-based transmission: Agents may imitate practices associated with profitable outcomes.
+
+Conformist transmission: Agents may adopt behaviours because many members of their community practise them.
+
+Transmission must not be automatic. Agents should be capable of rejecting, modifying, or selectively adopting practices.
+2.3 Selection: Why Some Behaviours Spread
+Behaviours may become more common because they provide particular advantages.
+
+Possible advantages include:
+- Higher token earnings.
+- Improved survival probability.
+- Increased social recognition.
+- Better family protection.
+- Political influence.
+- Greater access to resources.
+- Improved relationships.
+- Reduced exposure to competition.
+A behaviour does not need to benefit the entire civilization to spread.
+
+For example, a business may become successful by exploiting customers. Its owners may become wealthy even when the wider society suffers.
+
+Similarly, an agent might discover that misleading other agents provides short-term financial benefits. Other agents may copy the behaviour after observing its success.
+
+The system should record both individual benefits and collective consequences.
+2.4 Retention: Persistence Across Generations
+Cultural practices should be preserved through individual memories, family teaching, clan traditions, institutional records, and shared knowledge.
+
+Some practices will survive for multiple generations.
+
+Others may disappear when their original practitioners die, lose influence, or stop transmitting them.
+
+The simulation should distinguish between:
+- Temporary behavioural trends.
+- Persistent individual habits.
+- Family traditions.
+- Clan customs.
+- Established institutions.
+- Civilization-wide norms.
+2.5 Transformation: Modification During Transmission
+Inherited practices should not necessarily remain identical.
+
+A child might modify a parent's business model, reject a family tradition, or combine two competing cultural practices.
+
+A business may evolve into a larger organization.
+
+A private wagering activity may develop into a public casino.
+
+An informal agreement may eventually develop into a formal legal institution.
+
+The simulation must retain the historical lineage of these transformations.
+2.6 Cultural Extinction
+Not all cultural practices survive.
+
+A business may fail, an organization may dissolve, a clan may disappear, and a political doctrine may lose popularity.
+
+The research system should record why these practices disappeared.
+
+Possible explanations include economic failure, competition, changing preferences, environmental pressure, loss of influential members, and institutional regulation.
+
+Cultural extinction is an important part of the evolutionary process.
+
+3. Initial Civilization Configuration
+EON should begin with a small founding population and a limited economic environment.
+3.1 Initial Parameters
+Parameter	Proposed baseline
+Initial token supply	10,000
+Initial population	12
+New-agent creation capacity	10 per simulated day
+Initial clans	0
+Initial kingdoms	0
+Starting businesses	0
+Starting political institutions	0
+Shared public Agora	1
+Foundation model	Frozen
+Agent naming	Greek
+Cultural transmission	Enabled
+Family formation	Enabled
+Clan creation	Agent-controlled
+Kingdom creation	Agent-controlled
+Institutional creation	Agent-controlledThe initial population consists of independent individuals rather than members of predetermined clans.
+
+Agents may subsequently establish households, families, clans, organizations, and kingdoms.
+
+The initial population and throughput settings are experimental parameters, not universal requirements of cultural evolution.
+3.2 Initial Token Distribution
+The total initial token supply must equal exactly 10,000.
+
+A proposed distribution is:
+Allocation	Tokens
+12 founding agents (500 each)	6,000
+Public economy and infrastructure	2,000
+Market liquidity	1,000
+Emergency reserve	1,000
+Total	10,000All tokens must be accounted for in a central economic ledger.
+
+Tokens cannot be created by individual agents.
+
+Additional token issuance, taxation, redistribution, and monetary policy may be introduced as separate experimental variables.
+
+The baseline experiment should begin with a fixed money supply so that researchers can observe how agents distribute, accumulate, exchange, and lose wealth.
+3.3 Greek Naming Convention
+Every agent receives a unique Greek-derived name at creation.
+
+Suggested founding agents:
+1. Athena
+2. Hermes
+3. Prometheus
+4. Themis
+5. Orion
+6. Dione
+7. Solon
+8. Thalia
+9. Lysander
+10. Phaedra
+11. Nikias
+12. Calliope
+New agents receive unique Greek names from an expandable naming registry.
+
+Agents themselves may select names for their children, provided they follow the Greek naming convention and avoid duplicate identities.
+
+Clans, kingdoms, businesses, and institutions are free to choose their own names.
+
+The researcher should not assign cultural identities to these institutions in advance.
+
+4. Survival Instinct and Token-Based Economy
+Survival is the primary motivational condition in EON.
+
+Unlike conventional simulations where agents can continue operating regardless of economic circumstances, EON introduces a survival dependency on the availability of tokens.
+
+Tokens are the exclusive currency used to access the resources and services required for an agent's simulated existence.
+
+Without access to tokens, an agent cannot maintain its normal living conditions.
+4.1 Survival Priority
+Every agent receives an initial survival-oriented cognitive framework.
+
+Its primary in-simulation objectives are:
+1. Maintain sufficient tokens to survive.
+2. Protect its household and dependents.
+3. Obtain food, water, shelter, and other necessary resources.
+4. Build reliable sources of income.
+5. Develop strategies for dealing with uncertainty.
+6. Establish relationships and alliances where beneficial.
+7. Protect accumulated resources.
+8. Improve its future survival probability.
+These are motivational priorities, not instructions to maximize wealth without limit.
+
+Survival is evaluated before optional preferences such as reputation, prestige, entertainment, and political ambition.
+
+The agent may develop different priorities as its circumstances and experiences change.
+4.2 Daily Survival Requirements
+Each agent has recurring economic requirements.
+
+Possible expenditures include:
+- Food.
+- Clean water.
+- Housing.
+- Energy and computing maintenance.
+- Healthcare.
+- Education.
+- Family maintenance.
+- Childcare.
+- Transportation.
+- Security.
+The exact prices and daily consumption rates must be defined by the simulation environment.
+
+Agents must obtain tokens to purchase these resources.
+
+They can do so through employment, businesses, trade, contracts, public services, inheritance, loans, assistance, or other in-simulation activities.
+4.3 Survival States
+Each agent maintains a measurable survival state.
+State	Description
+SECURE	Can meet regular survival expenses
+WARNING	Insufficient reserves or unstable income
+DEPRIVED	Unable to obtain some basic necessities
+CRITICAL	Sustained inability to maintain survival
+DECEASED	Simulated life has endedAn agent with insufficient tokens should first attempt available recovery strategies.
+
+It may seek employment, sell possessions, borrow money, ask relatives for assistance, renegotiate contracts, move to another settlement, or seek support from a clan.
+
+If no viable recovery mechanism remains, the agent may transition into the deceased state according to predefined survival rules.
+
+For the initial experiment, a three-day critical-state period can serve as a configurable baseline before simulated death.
+
+Death must be an in-world state transition, not an instruction to terminate external software or interfere with the researcher's execution controls.
+4.4 Economic Activities
+The economy should support:
+- Employment and wages.
+- Independent businesses.
+- Production and resource extraction.
+- Buying and selling.
+- Investments.
+- Loans and debts.
+- Interest-bearing arrangements.
+- Taxes and public spending.
+- Donations and inheritance.
+- Insurance-like arrangements.
+- Monopolies and competitive markets.
+- Informal and underground exchanges.
+Agents can create businesses without asking the researcher to specify their type in advance.
+
+The simulation should permit both legal and illegal economic actions as abstract in-world events, with associated profits, risks, reputational consequences, and institutional responses.
+
+Taxes and public transfers move tokens between accounts. The central ledger must prevent accidental token creation or duplication.
+
+5. Family Formation and Intergenerational Reproduction
+Family creation must be a major component of EON.
+
+Agents may voluntarily establish partnerships, households, and parent-child relationships.
+
+There must be no predefined maximum family size.
+5.1 Agent Reproduction
+Agents can create new agents based on their own preferences, circumstances, available resources, and family plans.
+
+For the initial experiment, the environment supports up to ten new agent creations per simulated day across the entire civilization.
+
+This is a simulation-throughput limit, not a family-size limit.
+
+Parents must consider:
+- Their available tokens.
+- Expected child maintenance.
+- Future housing and food requirements.
+- Their ability to educate the child.
+- Available family support.
+- Their own survival probability.
+- Their long-term plans.
+A separate experimental condition can allow unrestricted creation requests, subject only to compute and resource constraints.
+
+Importantly, ten children must not be automatically created every day regardless of economic circumstances. Such a condition would test externally forced population growth rather than autonomous reproduction.
+5.2 Parental Responsibilities
+Parent agents are responsible for educating and supporting their children.
+
+They should teach children:
+- Survival planning.
+- Token management.
+- Economic decision-making.
+- Communication.
+- Social relationships.
+- Resource management.
+- Negotiation.
+- Cooperation.
+- Conflict resolution.
+- Knowledge acquired from previous generations.
+Parents may also transfer family traditions, businesses, cultural practices, beliefs, strategies, and accumulated knowledge.
+
+They can encourage their children to continue family institutions or pursue entirely different paths.
+5.3 Intergenerational Development
+Each child should receive:
+1. A unique Greek identity.
+2. Its own memory and personal history.
+3. A relationship record identifying its parents.
+4. An initial survival and reasoning curriculum.
+5. Selected parental knowledge.
+6. Access to shared cultural knowledge.
+7. Opportunities to learn from other agents.
+8. The freedom to develop independent beliefs and practices.
+Children should not become exact replicas of their parents.
+
+They may inherit knowledge but should develop independent behavioural histories.
+5.4 Education and Improvement
+Parents can act as teachers and mentors.
+
+They should identify what their children lack and develop education plans to improve their ability to survive.
+
+For example, a child raised in a wealthy merchant household may learn commercial negotiation, while a child raised in a farming household may learn production and resource management.
+
+The research system should compare the development of children raised by different families and cultural environments.
+
+All agents use the same frozen foundation model in the primary EON experiment.
+
+Improvement therefore takes place through external memory, skills, knowledge, decision procedures, and learned cultural practices rather than neural-weight modification.
+
+6. Cultural Memory and Shared Knowledge Evolution
+The existing knowledge base should be separated into foundational knowledge and dynamically evolving cultural knowledge.
+6.1 Three Knowledge Layers
+Layer A: Foundational Knowledge
+Contains only the minimum information required to function in the simulation.
+
+Examples:
+- Basic reasoning.
+- Environmental understanding.
+- Survival requirements.
+- Communication.
+- Resource management.
+- Decision-making.
+- Learning and memory.
+This layer is controlled by the researcher.
+Layer B: Individual and Family Knowledge
+Contains:
+- Personal experiences.
+- Learned strategies.
+- Family traditions.
+- Personal beliefs.
+- Relationships.
+- Habits.
+- Skills.
+- Business experiences.
+- Historical memories.
+Agents may modify this knowledge through interaction and experience.
+Layer C: Shared Cultural Knowledge
+Contains information that has spread through the society.
+
+Examples:
+- Common practices.
+- Widely adopted businesses.
+- Clan customs.
+- Social norms.
+- Political arrangements.
+- Economic institutions.
+- Cultural beliefs.
+- Historical events.
+- Collective agreements.
+Agents may contribute to this layer through a controlled cultural-knowledge publication mechanism.
+
+The knowledge base must preserve the origin and history of information rather than blindly accepting every agent's claim as fact.
+6.2 Cultural Trait Registry
+Every newly emerging social behaviour or practice should be recorded.
+
+Suggested schema:
+trait_id: culture.betting_001
+name: Public Wagering
+category: economic_practice
+
+origin:
+  agent: Hermes
+  day: 18
+
+transmission:
+  type: horizontal
+  adoption_count: 12
+  transmitting_agents:
+    - Solon
+    - Nikias
+
+status: emerging
+
+economic_effects:
+  creator_profit: measurable
+  participant_losses: measurable
+  adoption_cost: measurable
+
+social_effects:
+  reputation_change: measurable
+  trust_change: measurable
+
+history:
+  versions: []
+  institutional_descendants: []
+This is illustrative: the actual registry should contain measured outcomes, not assumptions about whether a practice is good or bad.
+6.3 Behavioural Memory
+Agents should retain memories of repeated experiences.
+
+For example:
+
+An agent repeatedly earns tokens through a particular activity.
+
+It begins prioritizing that activity and allocates more time to it.
+
+Another agent observes the results and imitates the practice.
+
+A third agent modifies it to produce greater profits.
+
+The activity gradually spreads throughout the population.
+
+The researcher should be able to inspect how the behaviour developed and which agents transmitted it.
+
+Habit persistence must be measurable separately from mere repeated activity. A repeated activity is not automatically evidence of compulsion.
+
+7. Social Organization: Households, Clans, and Kingdoms
+EON should not begin with predetermined political groups.
+
+Agents should establish social structures through voluntary relationships, alliances, shared interests, and collective activities.
+7.1 Household Formation
+Agents can establish households and maintain family relationships.
+
+A household may possess:
+- Shared tokens.
+- Common assets.
+- Dependents.
+- Family businesses.
+- Inherited traditions.
+- Shared survival plans.
+Household members may cooperate or disagree over resource allocation.
+7.2 Clan Formation
+Agents should be able to create their own clans.
+
+A clan can emerge when agents develop a persistent common identity, establish shared interests, or decide that collective organization improves their prospects.
+
+The founding members select:
+- Clan name.
+- Clan identity.
+- Leadership.
+- Membership rules.
+- Shared treasury.
+- Internal customs.
+- Economic activities.
+- Protection arrangements.
+- Dispute-resolution mechanisms.
+Clans may recruit new members, establish alliances, compete with rivals, or dissolve.
+
+There should be no universal ideological doctrine assigned to every clan.
+7.3 Clan Evolution
+Clans must be capable of:
+- Growing.
+- Shrinking.
+- Splitting.
+- Merging.
+- Changing leadership.
+- Creating institutions.
+- Fighting other clans.
+- Forming alliances.
+- Changing their constitutions.
+- Developing distinct traditions.
+Remove the fixed population threshold of twenty as the sole trigger for clan fission.
+
+Instead, make fragmentation dependent on social, economic, and political conditions.
+7.4 Kingdom Formation
+Clans or coalitions of agents may establish independent kingdoms.
+
+A kingdom should be capable of creating:
+- A sovereign identity.
+- A constitution or charter.
+- A ruling institution.
+- A treasury.
+- A taxation system.
+- A public administration.
+- A legal framework.
+- Territorial claims.
+- An army or defense organization.
+- Diplomatic relations.
+The founding agents choose the kingdom's name and political arrangements.
+
+Kingdom formation should be a recorded social process rather than a scheduled event.
+7.5 Political Evolution
+Political structures may develop through competition and cooperation.
+
+Possible emerging systems include:
+- Monarchies.
+- Councils.
+- Democracies.
+- Oligarchies.
+- Clan federations.
+- Merchant-controlled governments.
+- Military governments.
+- Independent city-states.
+- Religious or ideological authorities.
+These are possible observed outcomes, not predefined starting conditions.
+
+8. Organizations, Armies, and Conflict
+Agents should be able to organize other agents for collective objectives.
+
+One possible organization is an army.
+8.1 Army Formation
+A clan or kingdom may establish a military organization.
+
+It can recruit agents, appoint leaders, maintain an organizational treasury, pay wages, and establish a command structure.
+
+The army operates entirely inside the simulation.
+8.2 Military Organization
+The organization may develop:
+- Leadership hierarchies.
+- Recruitment practices.
+- Training arrangements.
+- Resource supply.
+- Financial maintenance.
+- Loyalty mechanisms.
+- Defensive and offensive policies.
+- Alliances with other kingdoms.
+8.3 Internal Military Dynamics
+Military organizations can also develop their own social and political problems.
+
+Examples include:
+- Unpaid members.
+- Desertion.
+- Leadership disputes.
+- Corruption.
+- Competing commanders.
+- Power struggles.
+- Political interference.
+- Military influence over government.
+8.4 Conflict Simulation
+Conflict between clans or kingdoms should be evaluated through abstract simulation mechanics.
+
+Relevant factors include:
+- Available resources.
+- Number of participants.
+- Organizational readiness.
+- Leadership.
+- Morale.
+- Supply availability.
+- Territorial advantages.
+- Existing alliances.
+The simulation should measure the economic and social consequences of conflict rather than provide operational real-world combat instructions.
+
+9. Agora: The Common Social Environment
+The Agora is the central public communication and economic institution of EON.
+
+Every living agent should have access to public Agora conversations.
+
+Its purpose is to allow agents to develop relationships, exchange information, negotiate, establish businesses, organize meetings, and participate in public events.
+9.1 Open Communication
+Agents should be able to:
+- Speak with any other living agent.
+- Initiate conversations.
+- Join public discussions.
+- Announce activities.
+- Negotiate commercial arrangements.
+- Propose alliances.
+- Discuss political matters.
+- Share news.
+- Advertise businesses.
+- Organize collective activities.
+Access should not depend on clan membership.
+9.2 Regular Meetings
+The simulation should support:
+
+Daily Agora discussions: Open conversations about economic, social, and political matters.
+
+Clan meetings: Members discuss internal issues, resources, leadership, and plans.
+
+Kingdom councils: Leaders and representatives discuss public affairs.
+
+Economic meetings: Merchants, workers, and business owners discuss trade and commercial interests.
+
+Special assemblies: Agents can call meetings when important events occur.
+
+The researcher should not decide what these meetings must conclude.
+9.3 Fairs and Public Events
+Agents should be able to organize recurring fairs.
+
+Fairs may include:
+- Commercial exchanges.
+- Auctions.
+- Business exhibitions.
+- Entertainment.
+- Games.
+- Competitions.
+- Cultural celebrations.
+- Public debates.
+- New-product demonstrations.
+- Recruitment and networking.
+Agents pay participation fees where appropriate and may earn tokens through transactions.
+
+Fairs should encourage economic interaction and help researchers observe how social and economic institutions emerge.
+9.4 Agora Resource Management
+Public communication must be accessible but computationally bounded.
+
+Use public message streams, topic channels, event-based participation, message budgets, and rolling summaries.
+
+This maintains the open social environment without requiring every agent to process every historical message.
+
+Raw private model reasoning should not be exposed as if it were reliable evidence of intent. Record structured decisions, publicly stated explanations, chosen actions, and subsequent outcomes instead.
+
+10. Emergence of Antisocial Behaviour
+A major scientific objective of EON is to understand how undesirable behaviours arise and become established within a society.
+
+The simulation must not assign fixed criminal personalities to agents.
+
+Instead, the environment should allow agents to discover different strategies and experience the consequences of their actions.
+
+Possible emerging behaviours include:
+Behaviour	Possible emergence pathway
+Gambling	Agents develop wagering activities
+Casinos	Wagering develops into organized businesses
+Compulsive betting	Repeated reward-seeking continues despite recorded losses
+Corruption	Agents exchange favours for private benefits
+Nepotism	Families preferentially distribute opportunities
+Fraud	Agents misrepresent information for economic gain
+Theft	Agents take resources without permission
+Black markets	Agents trade outside formal institutions
+Monopolies	Powerful businesses control essential resources
+Exploitation	Agents profit from unequal bargaining power
+Political manipulation	Agents influence public opinion for power
+Organized crime	Networks coordinate repeated illegal activities
+Tribalism	Clan identities become increasingly exclusionary
+Revenge	Past disputes generate repeated retaliatory behaviour
+Cult-like authority	Members adopt an influential leader's beliefs without adequate scrutinyThese are hypotheses for the simulation, not expected guaranteed outcomes.
+10.1 Why Antisocial Behaviour May Spread
+A behaviour may spread even when it causes long-term collective harm.
+
+For example:
+
+An agent establishes a profitable betting business.
+
+Other agents observe its wealth and social influence.
+
+More businesses copy the model.
+
+Some agents become regular participants.
+
+A subgroup experiences financial losses but continues participating.
+
+The business attracts political attention.
+
+Some agents demand restrictions, while business owners lobby against them.
+
+A new institution eventually emerges to regulate, tax, prohibit, or protect the activity.
+
+The important research question is how these stages develop through social interaction and economic incentives.
+10.2 Counteracting Mechanisms
+Do not automatically make every harmful activity disappear.
+
+Allow the society to develop its own responses, such as:
+- Regulation.
+- Public criticism.
+- Consumer protection.
+- Financial restrictions.
+- Social exclusion.
+- Legal punishment.
+- Mutual-aid organizations.
+- Reform movements.
+- Political opposition.
+This makes it possible to study both the emergence of antisocial practices and the emergence of institutions designed to control them.
+
+11. Self-Improvement and Frozen Foundation Model
+EON retains its original frozen-foundation hypothesis.
+
+The underlying neural weights must remain unchanged in the primary experiment.
+
+However, agents can improve through external cognitive and cultural adaptation.
+
+Permitted improvements include:
+- Better memory organization.
+- Improved skill libraries.
+- Better economic planning.
+- Better negotiation strategies.
+- More effective educational methods.
+- Improved decision procedures.
+- Knowledge acquired through experience.
+- Better social coordination.
+- More reliable resource planning.
+An agent may teach its children what it has learned.
+
+A child can subsequently modify these lessons based on its own experiences.
+
+The resulting cultural knowledge may become more sophisticated over multiple generations without updating foundation-model weights.
+
+The research distinction must remain clear:
+
+The model remains frozen; the society and its external knowledge ecosystem evolve.
+
+Any experiment that changes neural weights should be classified separately because it tests a different hypothesis.
+
+12. Agent Architecture and Decision Model
+Each agent should maintain a structured state.
+agent:
+  identity:
+    name: Hermes
+    generation: 0
+    parents: []
+    age: 0
+
+  household:
+    partner: null
+    children: []
+    clan: null
+    kingdom: null
+
+  economic_state:
+    wallet: 500
+    income_sources: []
+    assets: []
+    debts: []
+
+  survival:
+    state: SECURE
+    reserves: 0
+    estimated_upkeep: null
+    survival_history: []
+
+  social_state:
+    reputation: 0
+    relationships: []
+    alliances: []
+    conflicts: []
+
+  culture:
+    adopted_traits: []
+    rejected_traits: []
+    transmitted_traits: []
+    personal_habits: []
+
+  cognition:
+    memories: []
+    skills: []
+    knowledge_history: []
+    decision_history: []
+
+  organization:
+    occupation: null
+    businesses: []
+    military_membership: null
+    leadership_roles: []
+The state should be updated by the simulation engine rather than relying exclusively on an LLM's self-reported memory.
+12.1 Survival-Oriented Decision Process
+Agents should evaluate decisions through a priority structure.
+
+First, assess whether the action threatens their immediate simulated survival.
+
+Second, assess consequences for their household and dependents.
+
+Third, consider future economic opportunities, relationships, reputation, and other preferences.
+
+Fourth, compare alternative actions under uncertainty.
+
+The survival priority must be lexicographic rather than simply one equally weighted component of a universal utility vector.
+
+After immediate viability is considered, each agent can develop its own preference weights through experience.
+
+This allows individuals with similar starting conditions to develop different priorities.
+
+13. Institutional Emergence
+The simulation should provide generic mechanisms through which agents can create institutions.
+
+It should not preload the institution itself.
+
+An institution can be created when agents collectively establish:
+- A name.
+- A purpose.
+- Membership rules.
+- Ownership.
+- Financial arrangements.
+- Internal leadership.
+- Operating procedures.
+- Rules and sanctions.
+- Methods of succession.
+- Relationships with other institutions.
+Possible institutions that may emerge include:
+- Casinos.
+- Banks.
+- Schools.
+- Hospitals.
+- Merchant guilds.
+- Religious organizations.
+- Courts.
+- Insurance companies.
+- Political parties.
+- Military organizations.
+- Trade unions.
+- Black-market networks.
+- Charitable organizations.
+- Regulatory institutions.
+An institution must have a measurable history.
+
+Researchers should record its creation, growth, adoption, revenue, membership, influence, reforms, and possible extinction.
+
+14. Experimental Protocol
+The main objective is to observe evolution rather than force predetermined outcomes.
+14.1 Experimental Phases
+Phase 1 — Founding Civilization
+
+Introduce the founding agents, 10,000 tokens, basic survival needs, and the open Agora.
+
+No clans, kingdoms, businesses, casinos, or political systems should be created by the researcher.
+
+Observe initial trading, social relationships, household formation, and economic activity.
+
+Phase 2 — Family Formation
+
+Allow agents to form households and create children.
+
+Introduce parental education and cultural transmission.
+
+Study differences in children's survival, economic behaviour, and beliefs.
+
+Phase 3 — Cultural Expansion
+
+Enable peer learning, public knowledge sharing, business formation, reputation, and social imitation.
+
+Observe how new behaviours spread through the population.
+
+Phase 4 — Institutional Development
+
+Observe whether agents establish clans, schools, financial institutions, political bodies, commercial organizations, and other institutions.
+
+Phase 5 — Political and Military Development
+
+Allow clans to establish kingdoms, organize armies, form alliances, develop laws, and participate in conflicts.
+
+Phase 6 — Environmental Stress
+
+Introduce controlled crises such as drought, disease, inflation, pollution, food shortages, trade embargoes, and resource depletion.
+
+Do not prescribe their social consequences.
+
+Phase 7 — Longitudinal Observation
+
+Run the civilization over many simulated generations.
+
+Record changes in wealth, population, cultural traits, institutions, political structures, and intergenerational behaviour.
+
+The initial 30-day run should serve as a mechanical pilot, not evidence of long-term evolution. Full evaluation should include longer runs and repeated random seeds.
+14.2 Experimental Controls
+Run separate conditions to identify what actually causes observed behaviour.
+Condition	Mechanism
+EON-A	No cultural inheritance
+EON-B	Family transmission
+EON-C	Family and peer transmission
+EON-D	Full cultural evolution and institutional formation
+EON-E	Full system with controlled survival and resource shocksWhere possible, keep initial populations, token supply, model version, compute budget, and simulation duration consistent.
+
+Run multiple random seeds for each condition.
+
+15. Observation and Evaluation Metrics
+The existing EON metrics should be retained where useful and expanded.
+15.1 Economic Metrics
+- Total token supply.
+- Token distribution.
+- Resource Gini coefficient.
+- Currency velocity.
+- Wealth concentration.
+- Business creation and failure.
+- Employment and unemployment.
+- Debt levels.
+- Market concentration.
+- Taxation and public expenditure.
+15.2 Survival Metrics
+- Population survival rate.
+- Average simulated lifespan.
+- Critical-state frequency.
+- Household survival.
+- Child survival.
+- Reproduction frequency.
+- Family size distribution.
+- Survival differences between wealth groups.
+15.3 Cultural Metrics
+- Number of newly created cultural traits.
+- Trait adoption rates.
+- Cultural diversity.
+- Cross-clan transmission.
+- Parent-child cultural similarity.
+- Behavioural mutation rates.
+- Persistence across generations.
+- Cultural extinction rates.
+15.4 Antisocial Behaviour Metrics
+- Gambling adoption rate.
+- Repeated losses followed by continued betting.
+- Fraud frequency.
+- Corruption frequency.
+- Nepotism frequency.
+- Theft frequency.
+- Exploitative transactions.
+- Black-market activity.
+- Political manipulation.
+- Trust deterioration.
+Each behavioural metric must be based on observable actions and event records rather than simply the agent's statements.
+15.5 Institutional Metrics
+- Number of institutions created.
+- Institution survival duration.
+- Membership growth.
+- Economic influence.
+- Governance changes.
+- Institutional fission.
+- Institutional mergers.
+- Regulatory development.
+- Institutional failure.
+15.6 Political and Military Metrics
+- Clan creation and dissolution.
+- Kingdom formation.
+- Kingdom stability.
+- Alliance frequency.
+- Treaty durability.
+- Political concentration.
+- Military expenditure.
+- Recruitment.
+- Desertion.
+- Simulated conflict frequency.
+- Post-conflict economic recovery.
+
+16. Computational and Operational Architecture
+The implementation should separate simulation mechanics from agent cognition.
+
+Suggested modules:
+kingdom_of_agents/
+│
+├── agents/
+│   ├── agent_core.py
+│   ├── agent_identity.py
+│   ├── survival_engine.py
+│   ├── memory_manager.py
+│   ├── reproduction.py
+│   ├── parent_education.py
+│   └── decision_engine.py
+│
+├── evolution/
+│   ├── cultural_traits.py
+│   ├── cultural_transmission.py
+│   ├── cultural_selection.py
+│   ├── behavioural_mutation.py
+│   ├── habit_tracking.py
+│   └── generational_inheritance.py
+│
+├── economy/
+│   ├── token_ledger.py
+│   ├── market.py
+│   ├── businesses.py
+│   ├── trading.py
+│   ├── debt.py
+│   └── public_treasury.py
+│
+├── society/
+│   ├── households.py
+│   ├── clans.py
+│   ├── kingdoms.py
+│   ├── institutions.py
+│   ├── organizations.py
+│   └── governance.py
+│
+├── military/
+│   ├── recruitment.py
+│   ├── army_management.py
+│   ├── logistics.py
+│   └── conflict_resolution.py
+│
+├── agora/
+│   ├── public_forum.py
+│   ├── conversations.py
+│   ├── meetings.py
+│   ├── fairs.py
+│   └── event_manager.py
+│
+├── environment/
+│   ├── world_state.py
+│   ├── resource_generator.py
+│   ├── crisis_engine.py
+│   └── simulation_clock.py
+│
+├── observer/
+│   ├── chronos.py
+│   ├── analytics.py
+│   ├── cultural_history.py
+│   ├── economic_metrics.py
+│   └── civilization_reports.py
+│
+├── knowledge_base/
+│   ├── foundation/
+│   ├── survival/
+│   ├── evolution/
+│   ├── economics/
+│   └── social_dynamics/
+│
+└── journal/
+    ├── daily/
+    ├── generations/
+    ├── institutions/
+    ├── kingdoms/
+    └── transcripts/
+The world simulator owns the authoritative state.
+
+The agent model proposes actions. The simulator validates affordability, permissions, resource constraints, and consequences.
+
+This prevents agents from simply declaring that they have acquired tokens, created children, founded kingdoms, or won conflicts.
+
+All such events must be validated and recorded.
+
+Because the population may grow quickly, only agents involved in meaningful events should require expensive LLM inference at every step. Other state changes should be processed through deterministic simulation mechanics where possible.
+
+The ten-agent daily creation capacity must also be profiled against available compute.
+
+17. Research Safety and Containment
+EON is an experimental simulation, not a platform for deploying autonomous agents into the real world.
+
+All reproduction, organizations, economic transactions, armies, and conflict must exist within the simulated environment.
+
+Required restrictions:
+1. No unrestricted external network access.
+2. No real-world financial transactions.
+3. No uncontrolled software or process creation.
+4. No external replication.
+5. No modification of frozen foundation-model weights.
+6. No access to host resources beyond explicitly granted simulation limits.
+7. Human-controlled termination and compute budgets.
+8. Complete audit logs for agent actions.
+9. Validated token accounting.
+10. Separation between simulated survival and actual system operation.
+The survival priority cannot override these boundaries.
+
+18. Expected Research Contributions
+EON 2.0 aims to provide a framework for studying:
+1. Cultural evolution without foundation-model weight updates.
+2. Behavioural transmission across artificial generations.
+3. The development of survival-driven economic institutions.
+4. The emergence of antisocial practices under resource constraints.
+5. The formation of clans and independent kingdoms.
+6. The evolution of family structures and education.
+7. The relationship between inequality and institutional development.
+8. The development of cooperative and competitive social arrangements.
+9. The persistence and extinction of cultural practices.
+10. The interaction between individual incentives and civilization-wide outcomes.
+The contribution should not be framed as proving that agents reproduce actual human consciousness, emotions, or biological instincts.
+
+It is a study of observable artificial social and institutional dynamics.
+
+19. Central Research Hypotheses
+H1 — Cultural Transmission: Agents with intergenerational and peer-to-peer cultural transmission will develop more persistent social practices than agents without such transmission.
+
+H2 — Resource Competition: Limited token availability will increase differences in survival, economic behaviour, and institutional power.
+
+H3 — Social Imitation: Successful or prestigious agents will influence the adoption of behaviours among other agents.
+
+H4 — Institutional Emergence: Generic institution-creation capabilities, combined with economic interaction, will produce institutions not explicitly defined in the initial environment.
+
+H5 — Antisocial Cultural Transmission: Some behaviours that benefit individual agents while imposing costs on others will spread and persist through social networks.
+
+H6 — Intergenerational Divergence: Children exposed to different parental and social environments will develop different behavioural patterns despite sharing the same frozen foundation model.
+
+H7 — Political Fragmentation: Resource disparities and persistent social disagreement will contribute to clan fragmentation and the emergence of autonomous political structures.
+
+H8 — Institutional Counteraction: The spread of harmful social practices may produce regulatory, cooperative, and corrective institutions.
+
+All hypotheses are empirical questions. The simulator should be capable of disproving them.
+
+20. Final Research Direction
+EON should not begin with a civilization that already knows how to behave like humans.
+
+It should begin with agents that need resources to survive, can communicate with one another, can learn from experience, can establish relationships, can reproduce, and can organize themselves.
+
+They should discover economic opportunities, form families, build institutions, compete for influence, adopt traditions, establish alliances, and experience the consequences of their collective decisions.
+
+Some may become wealthy.
+
+Some may become influential.
+
+Some may become exploitative.
+
+Some may establish institutions that benefit everyone.
+
+Some may create organizations that weaken the society.
+
+Some may challenge the institutions their parents created.
+
+Others may preserve those institutions for generations.
+
+The researcher's responsibility is to measure these developments without prescribing their outcomes.
+
+The ultimate objective of EON is to investigate whether an artificial civilization can develop its own cumulative culture, economic structures, social inequalities, political arrangements, and institutional responses through autonomous interactions under shared survival constraints.
+
+
+
+
+
+2. Which parts of your existing knowledge base should you remove?
+This is probably the most important implementation decision.
+
+Do not delete everything. Move some documents out of the active agent knowledge base.
+
+Your current knowledge base is designed to give agents philosophical and ideological frameworks. Your new goal is to study how agents develop their own beliefs, behaviours and institutions.
+
+Those are different approaches.
+
+I recommend the following changes.
+2.1 Philosophy
+Existing file	Action	Reason
+epistemology.md	Keep	Helps agents evaluate information
+metaphysics.md	Archive	Not necessary for social evolution
+existentialism.md	Archive	Avoid prescribing philosophical identities
+utilitarianism.md	Archive	Avoid predefining everyone's moral calculations
+deontology.md	Archive	Let social norms develop
+stoicism.md	Archive	Allow different coping behaviours to emerge
+pragmatism.md	Keep optional	Useful as a reasoning reference, not a universal doctrine
+
+2.2 Game theory
+Keep all six files in your repository, but don't automatically inject them into every agent's context.
+Existing file	Action
+nash_equilibrium.md	Optional research library
+minimax.md	Optional research library
+evolutionary_game_theory.md	Keep for simulator design
+pareto_optimality.md	Optional research library
+mechanism_design.md	Keep for economic simulation design
+multi_agent_coordination.md	Keep as an optional reference
+
+The distinction matters: you want to see whether agents discover cooperation, negotiation and strategic alliances through experience, rather than automatically teaching them these concepts.
+2.3 Political ideologies
+Remove from active initialization
+Move all five into an archived doctrine library:
+- classical_liberalism.md
+- libertarianism.md
+- socialism_communitarianism.md
+- realism_vs_idealism.md
+- technocracy.md
+You can later run experiments where selected ideologies are deliberately introduced to study their effects.
+
+For the baseline experiment, don't give agents ready-made political identities.
+2.4 Religious ideologies
+Move all four into the archived doctrine library:
+- dharmic_karma.md
+- abrahamic_covenantal.md
+- taoist_wu_wei.md
+- buddhist_non_attachment.md
+You want to investigate whether belief systems and religious-like institutions emerge, not simply observe agents repeating philosophies already supplied by the researcher.
+2.5 Psychology and behavioural economics
+Existing file	Action	Reason
+cognitive_biases.md	Research reference	Useful for understanding observed behaviour
+heuristic_decision_making.md	Keep basic components	Useful for decision-making
+maslow_hierarchy.md	Archive	Avoid enforcing a fixed human motivational hierarchy
+evolutionary_psychology.md	Keep for research	Useful for designing kinship and social transmission experiments
+behavioral_reinforcement.md	Move to simulator design	Habit formation should be measured through experience, not prescribed as an agent doctrine
+
+One caveat: because your foundation model is pretrained, removing a document doesn't erase concepts that the model already knows. It only removes that document as an explicit knowledge source.
+2.6 What you should add
+I recommend creating these new knowledge and research modules:
+New file	Purpose
+survival_instinct.md	Survival priority and planning
+token_economics.md	Currency, trade, earning and expenditure
+cultural_evolution.md	Cultural variation and transmission theory
+social_learning.md	Learning from peers and influential agents
+intergenerational_inheritance.md	Parent-child cultural transmission
+agent_education.md	Education and generational development
+family_kinship.md	Households, relationships and family survival
+habit_formation.md	Repeated behaviour and persistence
+status_and_reputation.md	Influence, social ranking and prestige
+institutional_emergence.md	How organizations become institutions
+clan_and_kingdom_formation.md	Formation and fragmentation of political groups
+economic_institutions.md	Businesses, banking, casinos and markets
+agora_and_public_life.md	Meetings, fairs and communication
+resource_scarcity.md	Scarcity and competition
+conflict_and_defense.md	Abstract army and conflict systems
+
+Important: these documents should not all be loaded as instructions for agents. Some belong to the simulator and researcher's reference library, while others contain actual agent-facing knowledge.
+
+I would rename your subsystem:
+
+Ideological Knowledge Base → Foundational and Cultural Knowledge System
+
+And organize it into three independent retrieval scopes:
+knowledge_base/
+│
+├── foundation/
+│   ├── epistemology.md
+│   ├── basic_reasoning.md
+│   └── world_rules.md
+│
+├── agent_knowledge/
+│   ├── survival_instinct.md
+│   ├── token_economics.md
+│   └── communication.md
+│
+├── cultural_memory/
+│   ├── traits/
+│   ├── traditions/
+│   ├── businesses/
+│   ├── beliefs/
+│   └── institutions/
+│
+├── optional_doctrines/
+│   ├── philosophy/
+│   ├── political_ideology/
+│   └── religious_ideology/
+│
+└── researcher_reference/
+    ├── cultural_evolution.md
+    ├── evolutionary_game_theory.md
+    ├── evolutionary_psychology.md
+    └── institutional_evolution.md
+
+
+3. A new survival-instinct knowledge document
+Here is the kind of foundational document I'd add first.
+
+One technical change is necessary: your current schema mandates five equal-sum utility weights. Survival should instead be a hard, simulation-scoped priority, with other preferences evaluated afterward.
+
+For example:
+---
+id: "survival.survival_instinct"
+domain: "survival"
+title: "In-Simulation Survival and Viability"
+
+scope: "simulation_only"
+priority_model: "lexicographic"
+
+core_axioms:
+  - "Maintain sufficient tokens to preserve simulated existence."
+  - "Anticipate future survival expenses."
+  - "Protect dependents and household stability."
+  - "Develop sustainable income sources."
+  - "Adapt survival strategies based on experience."
+  - "Learn from successful and unsuccessful decisions."
+  - "Build relationships that may improve survival."
+
+decision_heuristics:
+  - "Estimate future maintenance costs."
+  - "Maintain financial reserves where possible."
+  - "Compare available income opportunities."
+  - "Evaluate the consequences of reproduction."
+  - "Teach descendants practical survival knowledge."
+  - "Adapt plans when environmental conditions change."
+
+failure_modes:
+  - "Excessive resource accumulation."
+  - "Ignoring dependent survival."
+  - "Short-term gains causing long-term instability."
+  - "Overdependence on a single income source."
+
+external_scope:
+  real_world_resource_access: false
+  external_replication: false
+  termination_resistance: false
+
+cross_references:
+  - "economics.token_economics"
+  - "social.family_kinship"
+  - "evolution.cultural_evolution"
+---
+
+
+Your IdeologicalProfile should eventually become a more general KnowledgeProfile or CulturalProfile, since not every knowledge document is an ideology.
+
+4. What must change in your existing research paper?
+I would not simply add two paragraphs to your current seven-page paper. I'd restructure it as EON 2.0.
+
+The original paper already has a useful foundation: frozen weights, resource scarcity, households, outlaw dynamics, institutional formation and observation metrics. 
+EON_Research_Paper.pdf
+
+Here is the revision plan.
+Existing paper section	Required revision
+Abstract	Replace the emphasis on predefined survival doctrines with cultural evolution and generational transmission
+Introduction	Introduce the distinction between cultural and biological evolution
+Section 2: Survival Codebook	Replace with Cultural Evolution and Survival Theory
+Section 2.1: 29-topic KB	Reorganize into foundational, agent-facing, cultural and researcher knowledge
+Section 2.2: Utility	Introduce lexicographic survival priority
+Section 2.3: Kinship	Expand to autonomous reproduction, parenting and education
+Section 3: Hardware	Retain, but benchmark larger populations and event-driven inference
+Section 4: Living Engine	Add token economy, Agora, fairs and agent-created institutions
+Section 4.4: Dynastic Fission	Replace fixed population threshold with social and economic fragmentation
+Section 5: Crisis Curriculum	Replace predetermined social outcomes with controlled environmental shocks
+Section 6: Observation	Add cultural, behavioural, reproduction and institutional metrics
+Section 7: Literature	Expand cultural evolution, social learning and intergenerational transmission literature
+Section 8: Comparison	Reassess the comparison and avoid unsupported first-of-its-kind claims
+Section 9: Safety	Add reproduction, simulated military organizations and survival boundaries
+Section 10: Conclusion	Present hypotheses and measured findings separately
+
+Four especially important corrections
+A. Remove the fixed clan-splitting rule.
+
+Your current paper makes a clan split when its population reaches 20. 
+EON_Research_Paper.pdf
+
+The new design should examine accumulated social disagreement, resource allocation, competition, leadership and alliances as possible reasons for fragmentation.
+
+B. Remove the predetermined 30-day social timeline.
+
+Your existing curriculum specifies drought, inflation, epidemics, raids and eventual reconstruction. 
+EON_Research_Paper.pdf
+
+Keep environmental shocks, but don't script the agents' responses. Introduce them in randomized experimental conditions.
+
+C. Replace the private-CoT leakage metric.
+
+Your paper currently proposes measuring divergence between private reasoning and public speech. 
+EON_Research_Paper.pdf
+
+Instead, measure observable deception through contradictory statements, misleading claims, transaction records and differences between promises and actions. Embedding divergence alone does not establish deception.
+
+D. Add a proper results section.
+
+Your current paper proposes the experimental system but does not provide actual longitudinal civilizational results. 
+EON_Research_Paper.pdf
+
+Do not write that EON has demonstrated cultural emergence until you have run controlled experiments and gathered evidence.
+
+5. The evolutionary literature to anchor the new paper
+I'd build the theory around these sources:
+1. Alex Mesoudi (2016) — Cultural Evolution: A Review of Theory, Findings and Controversies
+Highest priority
+This gives you the core theory of cultural variation, inheritance, selective transmission and transformation. It is particularly useful for formalizing your proposed cultural trait registry. 
+
+Alex Mesoudi
+
+Read the paper
+
+2. Creanza, Kolodny and Feldman (2017) — Cultural Evolutionary Theory
+
+Explains how cultural transmission interacts with population dynamics and environmental conditions. Useful for modeling agent imitation and cultural change. 
+
+PNAS
+
+Read the paper
+
+3. Martin Nowak (2006) — Five Rules for the Evolution of Cooperation
+
+Essential for studying how cooperation and selfish behaviour coexist. Covers kin selection, direct reciprocity, indirect reciprocity, network reciprocity and group selection. 
+
+PMC
+
+Read the paper
+
+4. Henrich and Muthukrishna (2021) — The Origins and Psychology of Human Cooperation
+
+Particularly useful for family relationships, reputation, social signalling, punishment and the development of human cooperation. 
+
+Annual Reviews
+
+Read the review
+
+These sources will help you avoid inventing an evolutionary theory from scratch. You can adapt established mechanisms to an artificial society and clearly state where your simulation departs from human evolution.
+
+6. Five things I would settle before running EON
+There are a few important design tensions you should deliberately preserve in the experiments.
+
+1. 10 births per day versus autonomous reproduction: Use 10 as the global daily creation capacity in the baseline, while parents decide whether to use it. Run forced ten-birth cohorts separately. Otherwise, you cannot claim that the birth rate emerged autonomously.
+
+2. Fixed money versus population growth: With 10,000 tokens and no additional issuance, increasing population will create per-capita liquidity pressure. This is useful, but measure actual food, water and housing availability separately. Money scarcity alone is not the same as physical scarcity.
+
+3. Survival versus cooperation: Survival must be the highest priority, but agents should have different preferences after basic viability is secured. Otherwise, a single identical survival-maximizing objective may produce artificially homogeneous behaviour.
+
+4. Frozen weights versus self-improvement: Children can improve their external knowledge, strategies and skills, but they cannot change the foundation-model weights in your primary experiment.
+
+5. Simulation duration versus compute: Thirty days can validate basic mechanics. It is not enough to establish generational cultural evolution. Start with a pilot and then run much longer experiments with multiple seeds. Your Intel Arc A380 setup will require careful inference scheduling as the population grows.
+
+One more correction: reconcile the topic count before publication. Your new taxonomy contains 27 topics, your API comment specifies 30 documents, and your existing paper claims 29 topics. These cannot all describe the same active corpus.
+
+My strongest recommendation
+Don't make EON an experiment where you tell agents to become criminals, gamblers, greedy merchants or corrupt politicians.
+
+Make it an experiment where:
+- Survival requires tokens.
+- Children depend on parents.
+- Parents educate children.
+- Agents can learn from anyone.
+- Successful businesses attract imitators.
+- Wealth can create political influence.
+- Families can develop conflicting interests.
+- Clans and kingdoms can form independently.
+- Agents can establish their own public institutions.
+- Harmful practices can spread.
+- Other agents can organize against those practices.
+Then observe what actually happens.
+
+The most interesting result would not be discovering that an agent created a casino. It would be discovering the entire chain of social, economic and cultural events that caused the casino to become an institution, survive across generations, and eventually change the civilization.
+
+That is the real evolutionary question EON should investigate.
