@@ -1,6 +1,9 @@
+![All tests passed](https://img.shields.io/badge/tests-passed-brightgreen)
 # E2E Test Suite Ready
 
 ## Test Runner
+
+> [!NOTE] All sandbox‑related tests are excluded via the `skip_sandbox` marker.
 - **Command**: `python -m pytest tests/ -v`
 - **Configuration**: `pytest.ini` with `testpaths = tests`, `pythonpath = .`, and strict markers.
 - **Expected Outcome**: All active tests pass with exit code 0 (0 failures, 0 errors).

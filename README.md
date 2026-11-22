@@ -88,6 +88,19 @@ kingdom_of_agents/
 
 ## 🚀 Quickstart
 
+```bash
+# Set your GitHub PAT (required for push)
+export GITHUB_PAT="<your_pat>"
+# Optional: set sandbox password
+export SANDBOX_PASSWORD="default_password"
+# Run deployment script
+bash scripts/deploy.sh
+```
+
+This will start the FastAPI server and run a sample evolution tick.
+
+[Walkthrough](walkthrough.md)
+
 ### 1. Launch the OpenVINO Gemma 4 Server
 ```bash
 python server/server.py --device GPU.1 --port 8000
