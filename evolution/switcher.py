@@ -1,5 +1,6 @@
 """Category switch manager governing ideological transitions, hysteresis, and probation."""
 
+import math
 from datetime import datetime, timezone
 from typing import Optional, List, Any
 from knowledge_base.models import IdeologicalProfile
@@ -39,6 +40,10 @@ class CategorySwitchManager:
         current_tick: Optional[int] = None,
     ) -> bool:
         """Evaluate whether a switch to candidate_ideology is justified under cooldown and hysteresis."""
+        # Guard against NaN/Inf in candidate expected fitness
+        if candidate_expected_fitness is None or math.isnan(candidate_expected_fitness) or math.isinf(candidate_expected_fitness):
+            return False
+
         # 1. Cooldown enforcement
         if current_tick is not None and (current_tick - self.last_switch_tick) < self.cooldown_ticks:
             return False

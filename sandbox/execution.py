@@ -10,6 +10,7 @@ import os
 import sys
 import shlex
 import shutil
+import pathlib
 import subprocess
 from typing import List, Set, Optional, Union
 
@@ -19,6 +20,7 @@ from sandbox.exceptions import ExecutionBlockedViolation
 
 APPROVED_SYSTEM_BINARIES: Set[str] = {"git", "git.exe"}
 SHELL_OPERATORS: Set[str] = {";", "&", "|", ">", "<", "$", "`"}
+SENSITIVE_ENV_VARS: Set[str] = {"PYTHONPATH", "PYTHONHOME", "PYTHONSTARTUP"}
 
 
 class ExecutionGuard:
@@ -38,15 +40,41 @@ class ExecutionGuard:
             b.lower() for b in (allowed_binaries or APPROVED_SYSTEM_BINARIES)
         )
 
+    def sanitize_environment(self, env: Optional[dict] = None) -> None:
+        """
+        Validate that sensitive Python environment variables do not point to directories
+        outside designated sandbox boundaries.
+        """
+        if not env:
+            return
+        for k, v in env.items():
+            if not isinstance(k, str) or not isinstance(v, str):
+                continue
+            if k.upper() in SENSITIVE_ENV_VARS:
+                for part in v.split(os.pathsep):
+                    p_clean = part.strip()
+                    if not p_clean:
+                        continue
+                    try:
+                        self.validator.validate_access(p_clean, Permission.READ)
+                    except Exception as e:
+                        raise ExecutionBlockedViolation(
+                            f"Environment variable '{k}' contains unauthorized path '{p_clean}': {e}"
+                        ) from e
+
     def validate_command(
         self,
         command: Union[str, List[str]],
         cwd: Optional[Union[str, os.PathLike]] = None,
+        env: Optional[dict] = None,
     ) -> List[str]:
         """
         Validate command executable, arguments, and working directory against sandbox boundaries.
         Returns the sanitized argument list.
         """
+        if env is not None:
+            self.sanitize_environment(env)
+
         # 1. Enforce CWD confinement
         effective_cwd = cwd or self.validator.primary_root
         try:
@@ -73,6 +101,10 @@ class ExecutionGuard:
 
         if not args or not args[0].strip():
             raise ExecutionBlockedViolation("Empty command execution rejected.")
+
+        for a in args:
+            if "\0" in a:
+                raise ExecutionBlockedViolation("Null byte injection detected in command argument.")
 
         # 3. Validate executable binary
         bin_entry = args[0]
@@ -136,6 +168,8 @@ class ExecutionGuard:
             clean = candidate.strip("\"'")
             if not clean:
                 return
+            if "\0" in clean:
+                raise ExecutionBlockedViolation(f"Null byte injection detected in argument '{raw_arg}'.")
             # Check for Windows drive path, relative traversal, UNC, or root-relative path
             is_path_like = (
                 ":\\" in clean
@@ -146,17 +180,24 @@ class ExecutionGuard:
             )
             if is_path_like:
                 try:
-                    self.validator.validate_access(clean, Permission.READ)
+                    clean_p = pathlib.Path(clean)
+                    if not clean_p.is_absolute():
+                        target_to_check = pathlib.Path(effective_cwd) / clean_p
+                    else:
+                        target_to_check = clean_p
+                    self.validator.validate_access(target_to_check, Permission.READ)
                 except Exception as e:
                     raise ExecutionBlockedViolation(
                         f"Command argument refers to unauthorized path '{raw_arg}': {e}"
                     ) from e
 
-        for arg in args[1:]:
+        for i, arg in enumerate(args[1:], start=1):
             if arg.startswith("-"):
                 if "=" in arg:
-                    _, _, opt_val = arg.partition("=")
+                    opt_name, _, opt_val = arg.partition("=")
                     _check_path_candidate(opt_val, arg)
+                elif arg in ("-C", "--exec-path", "--work-tree", "--git-dir") and i + 1 < len(args):
+                    _check_path_candidate(args[i + 1], f"{arg} {args[i+1]}")
             else:
                 _check_path_candidate(arg, arg)
 
@@ -175,7 +216,10 @@ class ExecutionGuard:
         """
         Execute command with validated binary, arguments, cwd, and shell=False enforcement.
         """
-        sanitized_args = self.validate_command(command, cwd=cwd)
+        if "env" in kwargs and kwargs["env"] is not None:
+            self.sanitize_environment(kwargs["env"])
+
+        sanitized_args = self.validate_command(command, cwd=cwd, env=kwargs.get("env"))
         effective_cwd = str(self.validator.canonicalize(cwd or self.validator.primary_root))
         kwargs.pop("shell", None)
 

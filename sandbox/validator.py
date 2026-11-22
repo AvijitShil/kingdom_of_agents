@@ -34,6 +34,7 @@ class Permission(Flag):
 
 RESERVED_DEVICE_NAMES: Set[str] = {
     "CON", "PRN", "AUX", "NUL",
+    "CONIN$", "CONOUT$", "CLOCK$",
     *(f"COM{i}" for i in range(1, 10)),
     *(f"LPT{i}" for i in range(1, 10)),
 }
@@ -109,7 +110,10 @@ class PathValidator:
         stripped = raw_path.strip()
         norm = os.path.normpath(stripped)
 
-        # Guard 1: Detect UNC Network Shares (\\\\server\\share, //server/share, etc.)
+        # Guard 1: Detect UNC Network Shares (\\\\server\\share, //server/share, etc.) and NT Object Manager paths
+        if norm.startswith(r"\??") or stripped.startswith(r"\??"):
+            raise PathTraversalViolation(f"NT object manager paths are prohibited: {raw_path}")
+
         if norm.startswith(r"\\") or stripped.startswith(r"\\") or stripped.startswith("//"):
             # Allow extended local drive prefix: \\?\C:\... or \\.\C:\...
             upper_norm = norm.upper()
@@ -200,7 +204,7 @@ class PathValidator:
         norm_canonical = os.path.normcase(str(canonical_path))
 
         # Check system-protected files against writes / modification
-        if required_perm in (Permission.WRITE, Permission.EXECUTE, Permission.READ_WRITE, Permission.ALL):
+        if bool(required_perm & (Permission.WRITE | Permission.EXECUTE)):
             for prot in self.protected_files:
                 prot_canon = os.path.normcase(str((self.primary_root / prot).resolve()))
                 if norm_canonical == prot_canon:

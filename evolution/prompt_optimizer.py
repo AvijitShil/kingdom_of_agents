@@ -32,7 +32,7 @@ class PromptOptimizer:
 
         # 3. Adaptive Reflection Lessons
         if reflection_history:
-            recent = reflection_history[-max_reflections:]
+            recent = [] if max_reflections <= 0 else reflection_history[-max_reflections:]
             reflections_text = "\n".join(
                 f"- [Tick {r.tick}] (Regret: {r.regret:.2f}) {r.prompt_mutation_suggestion}"
                 for r in recent

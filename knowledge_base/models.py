@@ -1,5 +1,6 @@
 """Data models for the Ideological Knowledge Base subsystem."""
 
+import math
 from typing import Dict, List, Any
 from pydantic import BaseModel, Field, field_validator, ConfigDict
 
@@ -48,6 +49,10 @@ class IdeologicalProfile(BaseModel):
         missing = REQUIRED_UTILITY_KEYS - set(v.keys())
         if missing:
             raise ValueError(f"utility_weights missing required keys: {sorted(missing)}")
+        for k in REQUIRED_UTILITY_KEYS:
+            val = v[k]
+            if val is None or math.isnan(val) or math.isinf(val):
+                raise ValueError(f"utility_weight for '{k}' must not be NaN or Inf, got {val}")
         total = sum(v[k] for k in REQUIRED_UTILITY_KEYS)
         if abs(total - 1.0) > 1e-4:
             raise ValueError(

@@ -53,14 +53,17 @@ class PasswordManager:
                 with open(self.config_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                 if isinstance(data, dict) and "salt_hex" in data and "hash_hex" in data:
-                    self._salt = bytes.fromhex(data["salt_hex"])
-                    self._hash = bytes.fromhex(data["hash_hex"])
-                    try:
-                        cfg_iter = int(data.get("iterations", PBKDF2_ITERATIONS))
-                    except (ValueError, TypeError):
-                        cfg_iter = PBKDF2_ITERATIONS
-                    self._iterations = max(cfg_iter, PBKDF2_ITERATIONS)
-                    return
+                    salt = bytes.fromhex(data["salt_hex"])
+                    pw_hash = bytes.fromhex(data["hash_hex"])
+                    if len(salt) == SALT_BYTES and len(pw_hash) == 32:
+                        self._salt = salt
+                        self._hash = pw_hash
+                        try:
+                            cfg_iter = int(data.get("iterations", PBKDF2_ITERATIONS))
+                        except (ValueError, TypeError):
+                            cfg_iter = PBKDF2_ITERATIONS
+                        self._iterations = max(cfg_iter, PBKDF2_ITERATIONS)
+                        return
             except Exception:
                 pass
 

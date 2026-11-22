@@ -30,6 +30,7 @@ _ORIG_SOCKET_SENDTO = socket.socket.sendto
 _ORIG_GETADDRINFO = socket.getaddrinfo
 _ORIG_GETHOSTBYNAME = socket.gethostbyname
 _ORIG_GETHOSTBYNAME_EX = socket.gethostbyname_ex
+_ORIG_GETHOSTBYADDR = socket.gethostbyaddr
 
 
 class NetworkGuard:
@@ -54,6 +55,7 @@ class NetworkGuard:
         self._original_getaddrinfo = _ORIG_GETADDRINFO
         self._original_gethostbyname = _ORIG_GETHOSTBYNAME
         self._original_gethostbyname_ex = _ORIG_GETHOSTBYNAME_EX
+        self._original_gethostbyaddr = _ORIG_GETHOSTBYADDR
 
     def is_destination_allowed(self, address: Any) -> bool:
         """Check if target network destination is within the loopback whitelist."""
@@ -160,12 +162,23 @@ class NetworkGuard:
                                 )
                     return _ORIG_GETHOSTBYNAME_EX(hostname)
 
+                def safe_gethostbyaddr(ip_address):
+                    if ip_address is not None and str(ip_address).strip():
+                        h = str(ip_address).lower().strip("[]")
+                        with guard_cls._lock:
+                            if not any(g.is_destination_allowed(h) for g in guard_cls._active_guards):
+                                raise NetworkEgressBlocked(
+                                    f"Outbound DNS resolution blocked: Reverse lookup attempt for '{ip_address}' rejected."
+                                )
+                    return _ORIG_GETHOSTBYADDR(ip_address)
+
                 socket.socket.connect = safe_connect
                 socket.socket.connect_ex = safe_connect_ex
                 socket.socket.sendto = safe_sendto
                 socket.getaddrinfo = safe_getaddrinfo
                 socket.gethostbyname = safe_gethostbyname
                 socket.gethostbyname_ex = safe_gethostbyname_ex
+                socket.gethostbyaddr = safe_gethostbyaddr
 
     def uninstall(self):
         """Restore original unpatched socket methods when depth drops to 0."""
@@ -185,6 +198,7 @@ class NetworkGuard:
                     socket.getaddrinfo = _ORIG_GETADDRINFO
                     socket.gethostbyname = _ORIG_GETHOSTBYNAME
                     socket.gethostbyname_ex = _ORIG_GETHOSTBYNAME_EX
+                    socket.gethostbyaddr = _ORIG_GETHOSTBYADDR
 
     @property
     def is_active(self) -> bool:
